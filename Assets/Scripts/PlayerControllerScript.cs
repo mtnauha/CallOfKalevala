@@ -13,13 +13,14 @@ public class PlayerControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		float move = Input.GetAxis ("Horizontal");
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveVertical = Input.GetAxis ("Vertical");
 
-		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		rigidbody2D.velocity = new Vector2 (moveHorizontal * maxSpeed, moveVertical * maxSpeed);
 
-		if (move > 0 && !facingRight)
+		if (moveHorizontal > 0 && !facingRight)
 			Flip ();
-		else if (move < 0 && facingRight)
+		else if (moveHorizontal < 0 && facingRight)
 			Flip ();
 	}
 
