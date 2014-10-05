@@ -1,0 +1,763 @@
+fileFormatVersion: 2
+guid: e5715c07fc614784facfee2ff61adacd
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: barbarian-spritet-tp3
+    21300002: barbarian-spritet-tp3_0
+    21300004: barbarian-spritet-tp3_1
+    21300006: barbarian-spritet-tp3_2
+    21300008: barbarian-spritet-tp3_3
+    21300010: barbarian-spritet-tp3_4
+    21300012: barbarian-spritet-tp3_5
+    21300014: barbarian-spritet-tp3_6
+    21300016: barbarian-spritet-tp3_7
+    21300018: barbarian-spritet-tp3_8
+    21300020: barbarian-spritet-tp3_9
+    21300022: barbarian-spritet-tp3_10
+    21300024: barbarian-spritet-tp3_11
+    21300026: barbarian-spritet-tp3_12
+    21300028: barbarian-spritet-tp3_13
+    21300030: barbarian-spritet-tp3_14
+    21300032: barbarian-spritet-tp3_15
+    21300034: barbarian-spritet-tp3_16
+    21300036: barbarian-spritet-tp3_17
+    21300038: barbarian-spritet-tp3_18
+    21300040: barbarian-spritet-tp3_19
+    21300042: barbarian-spritet-tp3_20
+    21300044: barbarian-spritet-tp3_21
+    21300046: barbarian-spritet-tp3_22
+    21300048: barbarian-spritet-tp3_23
+    21300050: barbarian-spritet-tp3_24
+    21300052: barbarian-spritet-tp3_25
+    21300054: barbarian-spritet-tp3_26
+    21300056: barbarian-spritet-tp3_27
+    21300058: barbarian-spritet-tp3_28
+    21300060: barbarian-spritet-tp3_29
+    21300062: barbarian-spritet-tp3_30
+    21300064: barbarian-spritet-tp3_31
+    21300066: barbarian-spritet-tp3_32
+    21300068: barbarian-spritet-tp3_33
+    21300070: barbarian-spritet-tp3_34
+    21300072: barbarian-spritet-tp3_35
+    21300074: barbarian-spritet-tp3_36
+    21300076: barbarian-spritet-tp3_37
+    21300078: barbarian-spritet-tp3_38
+    21300080: barbarian-spritet-tp3_39
+    21300082: barbarian-spritet-tp3_40
+    21300084: barbarian-spritet-tp3_41
+    21300086: barbarian-spritet-tp3_42
+    21300088: barbarian-spritet-tp3_43
+    21300090: barbarian-spritet-tp3_44
+    21300092: barbarian-spritet-tp3_45
+    21300094: barbarian-spritet-tp3_46
+    21300096: barbarian-spritet-tp3_47
+    21300098: barbarian-spritet-tp3_48
+    21300100: barbarian-spritet-tp3_49
+    21300102: barbarian-spritet-tp3_50
+    21300104: barbarian-spritet-tp3_51
+    21300106: barbarian-spritet-tp3_52
+    21300108: barbarian-spritet-tp3_53
+    21300110: barbarian-spritet-tp3_54
+    21300112: barbarian-spritet-tp3_55
+    21300114: barbarian-spritet-tp3_56
+    21300116: barbarian-spritet-tp3_57
+    21300118: barbarian-spritet-tp3_58
+    21300120: barbarian-spritet-tp3_59
+    21300122: barbarian-spritet-tp3_60
+    21300124: barbarian-spritet-tp3_61
+    21300126: barbarian-spritet-tp3_62
+    21300128: barbarian-spritet-tp3_63
+    21300130: barbarian-spritet-tp3_64
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 2
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: barbarian-spritet-tp3_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 512
+        width: 36
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 512
+        width: 26
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 512
+        width: 26
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 512
+        width: 32
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_4
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 512
+        width: 38
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_5
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 512
+        width: 42
+        height: 61
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_6
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 512
+        width: 36
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_7
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 512
+        width: 54
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 416
+        width: 37
+        height: 54
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_9
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 416
+        width: 38
+        height: 42
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_10
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 416
+        width: 35
+        height: 42
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_11
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 416
+        width: 58
+        height: 42
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_12
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 416
+        width: 34
+        height: 66
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_13
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 416
+        width: 35
+        height: 67
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_14
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 416
+        width: 34
+        height: 66
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_15
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 416
+        width: 42
+        height: 63
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_16
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 417
+        width: 70
+        height: 60
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_17
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 345
+        width: 36
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_18
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 345
+        width: 40
+        height: 56
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_19
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 345
+        width: 52
+        height: 56
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_20
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 344
+        width: 33
+        height: 42
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_21
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 344
+        width: 32
+        height: 17
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 344
+        width: 22
+        height: 24
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_23
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 344
+        width: 32
+        height: 17
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_24
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 345
+        width: 20
+        height: 22
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_25
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 344
+        width: 32
+        height: 42
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_26
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 256
+        width: 42
+        height: 63
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_27
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 257
+        width: 44
+        height: 76
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_28
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 257
+        width: 60
+        height: 61
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_29
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 256
+        width: 42
+        height: 61
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_30
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 256
+        width: 42
+        height: 63
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_31
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 257
+        width: 70
+        height: 60
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_32
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 256
+        width: 42
+        height: 63
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_33
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 256
+        width: 47
+        height: 63
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_34
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 160
+        width: 42
+        height: 61
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_35
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 160
+        width: 35
+        height: 63
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_36
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 161
+        width: 38
+        height: 69
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_37
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 161
+        width: 40
+        height: 74
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_38
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 160
+        width: 40
+        height: 60
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_39
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 160
+        width: 36
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_40
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 160
+        width: 42
+        height: 61
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_41
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 160
+        width: 42
+        height: 61
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_42
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 161
+        width: 33
+        height: 59
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_43
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 88
+        width: 34
+        height: 59
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_44
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 88
+        width: 34
+        height: 59
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_45
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 94
+        width: 44
+        height: 53
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_46
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 89
+        width: 58
+        height: 38
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_47
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 88
+        width: 56
+        height: 21
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_48
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 73
+        width: 38
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_49
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 73
+        width: 38
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_50
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 73
+        width: 34
+        height: 69
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_51
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 88
+        width: 34
+        height: 4
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_52
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 65
+        width: 11
+        height: 12
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_53
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 64
+        width: 11
+        height: 13
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_54
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 64
+        width: 14
+        height: 12
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_55
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 65
+        width: 15
+        height: 9
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_56
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 64
+        width: 13
+        height: 12
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_57
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 65
+        width: 13
+        height: 11
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_58
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 8
+        width: 24
+        height: 50
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_59
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 9
+        width: 30
+        height: 34
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_60
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 8
+        width: 48
+        height: 27
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_61
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 8
+        width: 59
+        height: 12
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_62
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 8
+        width: 42
+        height: 26
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_63
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 9
+        width: 44
+        height: 27
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-tp3_64
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 8
+        width: 61
+        height: 14
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

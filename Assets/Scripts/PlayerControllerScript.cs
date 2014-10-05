@@ -5,9 +5,17 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
 	bool facingRight = true;
+	Animator anim;  
+	public bool isMoving = false;
 
-	// Use this for initialization
+
+	void Awake ()
+	{
+		anim = GetComponent <Animator> ();
+	}
+
 	void Start () {
+
 	
 	}
 	
@@ -22,6 +30,13 @@ public class PlayerControllerScript : MonoBehaviour {
 			Flip ();
 		else if (moveHorizontal < 0 && facingRight)
 			Flip ();
+			
+
+		if (moveHorizontal != 0)
+			anim.SetBool ("isMoving", true);
+				else
+			anim.SetBool ("isMoving", false);
+
 	}
 
 	void Flip() {
@@ -29,5 +44,6 @@ public class PlayerControllerScript : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+		//isMoving = true;
 	}
 }

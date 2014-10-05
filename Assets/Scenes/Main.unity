@@ -129,7 +129,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4d32998590ebd6341a1c1e8d0ba65436, type: 3}
+  m_Sprite: {fileID: 21300002, guid: e5715c07fc614784facfee2ff61adacd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &244729051
 Transform:
@@ -139,7 +139,7 @@ Transform:
   m_GameObject: {fileID: 244729048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.50246096, y: -2.02476788, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
+  isMoving: 0
 --- !u!95 &244729054
 Animator:
   serializedVersion: 3
