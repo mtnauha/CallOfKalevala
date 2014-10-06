@@ -7,7 +7,11 @@ public class PlayerControllerScript : MonoBehaviour {
 	bool facingRight = true;
 	Animator anim;  
 	public bool isMoving = false;
+	public float plrHealth = 1;
+	public bool paaPoikki = false;
 
+//	public Rigidbody2D PaaPrefab;
+	public float speed = 10f;	
 
 	void Awake ()
 	{
@@ -15,6 +19,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	void Start () {
+	
 
 	
 	}
@@ -37,6 +42,23 @@ public class PlayerControllerScript : MonoBehaviour {
 				else
 			anim.SetBool ("isMoving", false);
 
+		if (Input.GetKeyDown ("space")) 
+			anim.SetBool ("isGoreLeg", true);
+
+		if (Input.GetKeyDown ("enter")) {
+						anim.SetBool ("isGoreHead", true);
+
+				HeadScript head = GetComponent<HeadScript>();
+
+				head.Attack();
+
+			}
+
+				
+			//
+					//	Rigidbody2D bulletInstance = Instantiate (PaaPrefab, transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as Rigidbody2D;
+				//		bulletInstance.velocity = new Vector2 (speed, 0);
+				
 	}
 
 	void Flip() {

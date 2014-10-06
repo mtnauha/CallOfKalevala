@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\HeadScript.cs" />
      <Compile Include="Assets\Scripts\PlayerControllerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity4_6beta/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
