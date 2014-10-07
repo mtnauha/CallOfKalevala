@@ -4,11 +4,22 @@ using System.Collections;
 public class PlayerControllerScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
-	bool facingRight = true;
+	private bool facingRight = true;
+	private bool attack = false;
+
+	Animator anim;
 
 	// Use this for initialization
 	void Start () {
-	
+		anim = GetComponent<Animator> ();
+	}
+
+	void Update () {
+		if (Input.GetKeyDown ("space")) {
+			anim.SetTrigger ("Attack");
+			attack = true;
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -16,7 +27,13 @@ public class PlayerControllerScript : MonoBehaviour {
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
 
-		rigidbody2D.velocity = new Vector2 (moveHorizontal * maxSpeed, moveVertical * maxSpeed);
+		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack")) {
+			anim.SetFloat ("Speed", Mathf.Abs (moveHorizontal + moveVertical));
+			rigidbody2D.velocity = new Vector2 (moveHorizontal * maxSpeed, moveVertical * maxSpeed);
+		} else {
+			anim.SetFloat ("Speed", 0);
+			rigidbody2D.velocity = Vector2.zero;
+		}
 
 		if (moveHorizontal > 0 && !facingRight)
 			Flip ();
@@ -30,4 +47,13 @@ public class PlayerControllerScript : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	void OnTriggerStay2D(Collider2D col) {
+		if (col.gameObject.tag == "Enemy" && attack) {
+			col.gameObject.SendMessage("ApplyDamage", 10);
+			attack = false;
+			Debug.Log ("Enemy collision!");
+		}
+	}
+
 }

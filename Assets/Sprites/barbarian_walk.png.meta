@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: c5fd13ef4838b0e4d84ebfc8fcb48e52
+guid: ad49554fd81059a4b93ce25e5ac6bcfc
 TextureImporter:
   fileIDToRecycleName:
-    21300000: barbarian-II-spritet-transp2_0
-    21300002: barbarian-II-spritet-transp2_1
-    21300004: barbarian-II-spritet-transp2_2
-    21300006: barbarian-II-spritet-transp2_3
+    21300000: barbarian_walk_0
+    21300002: barbarian_walk_1
+    21300004: barbarian_walk_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -47,7 +46,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: barbarian-II-spritet-transp2_0
+    - name: barbarian_walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -57,7 +56,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: barbarian-II-spritet-transp2_1
+    - name: barbarian_walk_1
       rect:
         serializedVersion: 2
         x: 116
@@ -67,20 +66,10 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: barbarian-II-spritet-transp2_2
+    - name: barbarian_walk_2
       rect:
         serializedVersion: 2
         x: 232
-        y: 0
-        width: 116
-        height: 170
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: barbarian-II-spritet-transp2_3
-      rect:
-        serializedVersion: 2
-        x: 348
         y: 0
         width: 116
         height: 170
