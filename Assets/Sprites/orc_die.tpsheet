@@ -1,0 +1,12 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: orc_die.png (1368 x 444)
+# $TexturePacker:SmartUpdate:f98da798d1ed217ea71d721524ae233e:960540e8fd4972f3fd8bfa01ec337543:148d15166b990a12fffa1aa1e72f2a08$
+#
+
+orc_die_1;2;2;680;440;0;0
+orc_die_2;684;2;680;440;0;0
