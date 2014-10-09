@@ -54,7 +54,7 @@ TextureImporter:
         width: 256
         height: 288
       alignment: 9
-      pivot: {x: .25, y: .425000012}
+      pivot: {x: .25, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: barbarian1_walk_1
       rect:
@@ -64,7 +64,7 @@ TextureImporter:
         width: 256
         height: 288
       alignment: 9
-      pivot: {x: .25, y: .425000012}
+      pivot: {x: .25, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: barbarian1_walk_2
       rect:
@@ -74,7 +74,7 @@ TextureImporter:
         width: 256
         height: 288
       alignment: 9
-      pivot: {x: .25, y: .425000012}
+      pivot: {x: .25, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
