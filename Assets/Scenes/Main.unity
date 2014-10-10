@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 1
-  maxCooldown: 2
+  maxAttackCooldown: 2
   health: 100
 --- !u!95 &23879760
 Animator:
@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 2
+  health: 100
 --- !u!95 &244729054
 Animator:
   serializedVersion: 3

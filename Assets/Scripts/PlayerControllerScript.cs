@@ -9,6 +9,9 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	Animator anim;
 
+	//Stats
+	public int health;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -50,10 +53,14 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col) {
 		if (col.gameObject.tag == "Enemy" && attack) {
-			col.gameObject.SendMessage("ApplyDamage", 10);
+			col.gameObject.SendMessage("ApplyDamage", 20);
 			attack = false;
 			Debug.Log ("Enemy collision!");
 		}
+	}
+
+	void ApplyDamage(int damage) {
+		health -= damage;
 	}
 
 }
