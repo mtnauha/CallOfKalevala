@@ -1,9 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyControllerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PomppivaPaa.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyControllerScript.cs" Line="102" Column="30" />
-      <File FileName="Assets\Scripts\PlayerControllerScript.cs" Line="62" Column="32" />
+      <File FileName="Assets\Scripts\PlayerControllerScript.cs" Line="18" Column="26" />
+      <File FileName="Assets\Scripts\EnemyControllerScript.cs" Line="33" Column="14" />
+      <File FileName="Assets\Scripts\MestausScript.cs" Line="6" Column="2" />
+      <File FileName="Assets\Scripts\PomppivaPaa.cs" Line="12" Column="28" />
+      <File FileName="Assets\Scripts\RampautusScript.cs" Line="6" Column="2" />
+      <File FileName="Assets\Scripts\VeriLentaa.cs" Line="15" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

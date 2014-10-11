@@ -5,6 +5,7 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
 	public float maxAttackCooldown = 2f;
+	public float attackTimer = 0f;
 
 	private bool facingRight = false;
 	private bool enemyWithinAttackRange = false;
@@ -13,18 +14,23 @@ public class EnemyControllerScript : MonoBehaviour {
 	private float moveVertical = 0;
 	private float timer = 0;
 	private float attackCooldown;
+	private bool damageApplied = true;
+
+	//private bool attackInProgress = false;
+	//private bool attackFinished = false;
 
 	Animator anim;
 	GameObject hero;
 
+ 	
 	//Stats
-	public int health;
+	private float health;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
 		hero = GameObject.FindWithTag ("Hero");
-		health = 100;
+		health = 100f;
 		attackCooldown = 0;
 		dead = false;
 	}
@@ -64,20 +70,36 @@ public class EnemyControllerScript : MonoBehaviour {
 					moveVertical = 0;
 				}
 			}
+
+			if (anim.GetCurrentAnimatorStateInfo (0).IsName ("Base.Orc_attack")) {
+				attackTimer += Time.deltaTime;
+			} else {attackTimer=0f;}
 			
 			if (enemyWithinAttackRange) {
 				if (attackCooldown <= 0) {
 					anim.SetTrigger ("Attack");
+					damageApplied=false;
+
+					//attackInProgress = true;
+					//attackFinished = false;
 					attackCooldown = maxAttackCooldown;
 				} else {
 					attackCooldown -= Time.deltaTime;
 				}
 			}
-			
+
 			if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("Base.Orc_attack")) {
+
 				anim.SetFloat ("Speed", Mathf.Abs (moveHorizontal + moveVertical));
 				rigidbody2D.velocity = new Vector2 (moveHorizontal * maxSpeed, moveVertical * maxSpeed);
 			} else {
+
+				if (attackTimer>0.8f && enemyWithinAttackRange && !damageApplied) {
+					inflictDamageToPlayer(10f);
+					Debug.Log ("Enemy damaged the player!");
+					damageApplied=true;
+					}
+
 				anim.SetFloat ("Speed", 0);
 				rigidbody2D.velocity = Vector2.zero;
 			}
@@ -97,12 +119,12 @@ public class EnemyControllerScript : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-	void ApplyDamage(int damage) {
+	void ApplyDamage(float damage) {
 		health -= damage;
 		anim.SetTrigger ("Damage");
 	}
 
-	void inflictDamageToPlayer(int damage) {
+	void inflictDamageToPlayer(float damage) {
 		hero.SendMessage("ApplyDamage", damage);
 	}
 

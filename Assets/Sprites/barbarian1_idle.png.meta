@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 1dbb9e8f84d45d14592fe5676842716d
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: barbarian1_idle
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

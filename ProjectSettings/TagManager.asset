@@ -5,6 +5,9 @@ TagManager:
   tags:
   - Enemy
   - Hero
+  - maa
+  - ylaraja
+  - verisuihku
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -15,10 +18,10 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Damage
-  User Layer 9: 
-  User Layer 10: 
+  User Layer 9: Hero
+  User Layer 10: Enemy
   User Layer 11: 
-  User Layer 12: 
+  User Layer 12: Veri
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
@@ -34,12 +37,28 @@ TagManager:
   User Layer 25: 
   User Layer 26: 
   User Layer 27: 
-  User Layer 28: 
-  User Layer 29: 
-  User Layer 30: 
-  User Layer 31: 
+  User Layer 28: Tausta I
+  User Layer 29: Tausta II
+  User Layer 30: Tausta III
+  User Layer 31: Tausta IV
   m_SortingLayers:
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Hero
+    userID: 1
+    uniqueID: 932414511
+    locked: 0
+  - name: Enemy
+    userID: 2
+    uniqueID: 1985608431
+    locked: 0
+  - name: Damage
+    userID: 3
+    uniqueID: 3171240875
+    locked: 0
+  - name: Tausta
+    userID: 4
+    uniqueID: 1757110617
     locked: 0
