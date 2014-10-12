@@ -4,8 +4,9 @@ using System.Collections;
 public class PlayerControllerScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
+
 	private bool facingRight = true;
-	private bool attack = false;
+	private ArrayList enemiesWithinAttackRange = new ArrayList();
 
 	Animator anim;
 
@@ -20,7 +21,12 @@ public class PlayerControllerScript : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown ("space")) {
 			anim.SetTrigger ("Attack");
-			attack = true;
+
+			foreach(GameObject enemy in enemiesWithinAttackRange) {
+				if(IsOnSameVerticalLevelWithEnemy(enemy)) {
+					InflictDamageToEnemy(enemy, 20);
+				}
+			}
 		}
 
 	}
@@ -42,6 +48,8 @@ public class PlayerControllerScript : MonoBehaviour {
 			Flip ();
 		else if (moveHorizontal < 0 && facingRight)
 			Flip ();
+
+		transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.y);
 	}
 
 	void Flip() {
@@ -51,16 +59,34 @@ public class PlayerControllerScript : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-	void OnTriggerStay2D(Collider2D col) {
-		if (col.gameObject.tag == "Enemy" && attack) {
-			col.gameObject.SendMessage("ApplyDamage", 20);
-			attack = false;
-			Debug.Log ("Enemy collision!");
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.gameObject.tag == "Enemy") {
+			enemiesWithinAttackRange.Add(col.gameObject);
+		}
+	}
+	
+	void OnTriggerExit2D(Collider2D col) {
+		if (col.gameObject.tag == "Enemy") {
+			enemiesWithinAttackRange.Remove(col.gameObject);
 		}
 	}
 
 	void ApplyDamage(int damage) {
 		health -= damage;
+	}
+
+	void InflictDamageToEnemy(GameObject enemy, int damage) {
+		enemy.SendMessage("ApplyDamage", 20);
+	}
+
+	bool IsOnSameVerticalLevelWithEnemy(GameObject enemy) {
+		float yDifference = (enemy.transform.position.y - this.transform.position.y);
+		
+		if (Mathf.Abs(yDifference) > 0.2f) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 }
