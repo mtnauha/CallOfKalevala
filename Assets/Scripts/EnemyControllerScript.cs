@@ -11,7 +11,6 @@ public class EnemyControllerScript : MonoBehaviour {
 	private bool dead;
 	private float moveHorizontal = 0;
 	private float moveVertical = 0;
-	private float timer = 0;
 	private float attackCooldown;
 
 	Animator anim;
@@ -40,14 +39,18 @@ public class EnemyControllerScript : MonoBehaviour {
 		moveHorizontal = 0;
 		moveVertical = 0;
 
-		if (health <= 0 && !dead) {
-			anim.SetTrigger ("Die");
-			dead = true;
-		}
-
 		if (!dead) {
-			//Liikutetaan vihollista pelaajan suuntaan, jos ei olla hyökkäämässä
-			if (!enemyWithinAttackRange) {
+			attackCooldown -= Time.deltaTime;
+
+			if (enemyWithinAttackRange && IsOnSameVerticalLevelWithHero()) {
+				if (attackCooldown <= 0) {
+					anim.SetTrigger ("Attack");
+					attackCooldown = maxAttackCooldown;
+				}
+			}
+
+			//Liikutetaan vihollista pelaajan suuntaan, jos ei olla oikealla etäisyydellä tai syvyydellä
+			if (!enemyWithinAttackRange || !IsOnSameVerticalLevelWithHero()) {
 				if ((hero.transform.position.x - this.transform.position.x) > 0.2f) {
 					moveHorizontal = 1;
 				} else if ((hero.transform.position.x - this.transform.position.x) < 0) {
@@ -65,17 +68,14 @@ public class EnemyControllerScript : MonoBehaviour {
 				}
 			}
 			
-			if (enemyWithinAttackRange) {
-				if (attackCooldown <= 0) {
-					anim.SetTrigger ("Attack");
-					attackCooldown = maxAttackCooldown;
+			if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("Orc_attack") &&
+			    !anim.GetCurrentAnimatorStateInfo (0).IsName ("Orc_damage")) {
+
+				if(Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical)) {
+					anim.SetFloat ("Speed", Mathf.Abs (moveHorizontal));
 				} else {
-					attackCooldown -= Time.deltaTime;
+					anim.SetFloat ("Speed", Mathf.Abs (moveVertical));
 				}
-			}
-			
-			if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("Base.Orc_attack")) {
-				anim.SetFloat ("Speed", Mathf.Abs (moveHorizontal + moveVertical));
 				rigidbody2D.velocity = new Vector2 (moveHorizontal * maxSpeed, moveVertical * maxSpeed);
 			} else {
 				anim.SetFloat ("Speed", 0);
@@ -86,6 +86,9 @@ public class EnemyControllerScript : MonoBehaviour {
 				Flip ();
 			else if (moveHorizontal < 0 && facingRight)
 				Flip ();
+
+			//Asetetaan syvyys objektin korkeuden mukaan, jotta pelissä näkyvät spritet piirtyvät ruudulle oikeassa järjestyksessä
+			transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.y);
 		}
 
 	}
@@ -98,8 +101,16 @@ public class EnemyControllerScript : MonoBehaviour {
 	}
 
 	void ApplyDamage(int damage) {
-		health -= damage;
-		anim.SetTrigger ("Damage");
+		if (!dead) {
+			health -= damage;
+
+			if (health <= 0) {
+				SetDead();
+				anim.SetTrigger ("Die");
+			} else {
+				anim.SetTrigger ("Damage");
+			}
+		}
 	}
 
 	void inflictDamageToPlayer(int damage) {
@@ -116,5 +127,26 @@ public class EnemyControllerScript : MonoBehaviour {
 		if (col.gameObject.tag == "Hero") {
 			enemyWithinAttackRange = false;
 		}
+	}
+
+	bool IsOnSameVerticalLevelWithHero() {
+		float yDifference = (hero.transform.position.y - this.transform.position.y);
+
+		if (Mathf.Abs(yDifference) > 0.2f) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	void SetDead() {
+		dead = true;
+		anim.SetBool ("Dead", true);
+		rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.None;
+		collider2D.enabled = false;
+		anim.SetFloat ("Speed", 0);
+		rigidbody2D.velocity = Vector2.zero;
+
+		transform.position = new Vector3 (transform.position.x, transform.position.y, 10);
 	}
 }
