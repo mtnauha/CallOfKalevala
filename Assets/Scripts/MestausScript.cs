@@ -50,7 +50,7 @@ public class MestausScript : MonoBehaviour
 		
 		// Assign position
 		headTransform.position = transform.position;
-	
+		headTransform.renderer.sortingLayerName = "Verilammikko";
 		
 		
 	}

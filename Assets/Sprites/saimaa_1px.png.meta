@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 1508148bb1fdd044e8fc98fd59968bb2
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: saimaa_1px
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

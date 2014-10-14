@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: af9cce43d9a8fda47a4686ac881f7326
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: areena1_pixelated_painted
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

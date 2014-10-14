@@ -30,6 +30,12 @@ public class VeriLentaa : MonoBehaviour {
 		
 		// Assign position
 		suihku.position = transform.position;
+
+		var xMod = Random.Range(-0.2f,0.01f);
+		var yMod = Random.Range(-0.21f,0.01f);
+				
+		// Assign position
+		suihku.position = new Vector3(suihku.position.x+xMod, suihku.position.y+yMod, suihku.position.z);
 		
 
 }
