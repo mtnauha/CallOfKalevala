@@ -248,6 +248,7 @@ GameObject:
   - 198: {fileID: 189942052}
   - 212: {fileID: 189942055}
   - 114: {fileID: 189942056}
+  - 114: {fileID: 189942057}
   m_Layer: 0
   m_Name: VerisuihkuJalka
   m_TagString: verisuihku
@@ -429,7 +430,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4278650853
+        rgba: 4278650812
       minMaxState: 0
     startSize:
       scalar: .25
@@ -1384,6 +1385,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 907b8c0f7f8c3b343a7f5aba9eaab0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &189942057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189942051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e19953aedf5d2e40a05535da40087a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Verilammikko: {fileID: 349318226}
 --- !u!1 &244729048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,7 +1570,7 @@ GameObject:
   - 4: {fileID: 349318226}
   - 114: {fileID: 349318227}
   m_Layer: 13
-  m_Name: Verilammikko
+  m_Name: VerisuihkuPerusL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2806,6 +2819,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 2d8462e8f44ef754eb27ee2c2d6d5fe0, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c99ced513364abd4d84c0ccd3a46cc58, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d8462e8f44ef754eb27ee2c2d6d5fe0, type: 2}
   m_RootGameObject: {fileID: 736285488}
@@ -2820,6 +2837,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 736285490}
   - 212: {fileID: 736285489}
+  - 95: {fileID: 736285492}
+  - 114: {fileID: 736285491}
   m_Layer: 13
   m_Name: Verilammikko
   m_TagString: Untagged
@@ -2862,6 +2881,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &736285491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736285488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf3c6affc5c76546b0f69d29777e345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &736285492
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500000, guid: 2d8462e8f44ef754eb27ee2c2d6d5fe0,
+    type: 2}
+  m_PrefabInternal: {fileID: 722441582}
+  m_GameObject: {fileID: 736285488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c99ced513364abd4d84c0ccd3a46cc58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &739954649
 Prefab:
   m_ObjectHideFlags: 0
@@ -2933,6 +2979,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 87cc4fdcc0cff6e4d8d7a1983c961089, type: 2}
+      propertyPath: Veriviiru
+      value: 
+      objectReference: {fileID: 2069274601}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87cc4fdcc0cff6e4d8d7a1983c961089, type: 2}
   m_RootGameObject: {fileID: 839607143}
@@ -3102,6 +3152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Verilammikko: {fileID: 736285490}
+  Veriviiru: {fileID: 2069274601}
 --- !u!58 &839607145
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4537,6 +4588,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VerisuihkuPerus: {fileID: 376809077}
+--- !u!1001 &1953598258
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.88985324
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.03281641
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .45299387
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+  m_RootGameObject: {fileID: 2069274599}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1957885816
 GameObject:
   m_ObjectHideFlags: 0
@@ -4617,3 +4720,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 244729051}
   m_RootOrder: 3
+--- !u!1 &2069274599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+  m_PrefabInternal: {fileID: 1953598258}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2069274601}
+  - 212: {fileID: 2069274600}
+  m_Layer: 0
+  m_Name: Veriviiru
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &2069274600
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21200000, guid: 99d8231fe2e589143b2ca2a82af579a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1953598258}
+  m_GameObject: {fileID: 2069274599}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 9
+  m_Sprite: {fileID: 21300000, guid: be317c2fbf51aef4a8d716927ea221dd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &2069274601
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 99d8231fe2e589143b2ca2a82af579a5, type: 2}
+  m_PrefabInternal: {fileID: 1953598258}
+  m_GameObject: {fileID: 2069274599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.88985324, y: -2.03281641, z: .45299387}
+  m_LocalScale: {x: 1, y: 3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8

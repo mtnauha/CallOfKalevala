@@ -4,21 +4,27 @@ using System.Collections;
 public class PomppivaPaa : MonoBehaviour {
 
 	float dropTimer = 0f;
+	float viiruTimer = 0f;
 	float bloodCounter = 0f;
 	Vector3 startVector;
 	float startY;
 	bool noSplatters;
 
 	public Transform Verilammikko;
+	public Transform Veriviiru;
 
 	// Use this for initialization
 	void Start () {
+		dropTimer = 0f;
 		gameObject.collider2D.enabled = true;
 		gameObject.collider2D.isTrigger = true;
 		startVector = transform.position;
 		startY = transform.position.y;
 		noSplatters = true;
-		Vector2 v = new Vector2(150F,260);
+		var v1Mod = Random.Range (100f, 200f);
+		var v2Mod = Random.Range (160f, 360f);
+		Vector2 v = new Vector2(v1Mod,v2Mod);
+		//Vector2 v = new Vector2(150f,260f);
 
 
 		gameObject.rigidbody2D.AddRelativeForce (v);
@@ -29,6 +35,7 @@ public class PomppivaPaa : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		viiruTimer += Time.deltaTime;
 		dropTimer += Time.deltaTime;
 		//angle = gameObject.transform.localEulerAngles.z;
 
@@ -45,6 +52,23 @@ public class PomppivaPaa : MonoBehaviour {
 				} else {
 			noSplatters = false;
 			gameObject.collider2D.enabled = true;
+				}
+
+		if (bloodCounter < 10.0f && !noSplatters && viiruTimer > 0.05f && dropTimer > 0.25f && dropTimer < 12.0f) {
+			
+						//if (gameObject.transform.localEulerAngles.z > 285.0f || gameObject.transform.localEulerAngles.z < 75.0f) {
+								//if (gameObject.transform.localEulerAngles.z >= -0.2f && gameObject.transform.localEulerAngles.z <= 0.2f) {
+								var xMod = Random.Range (-0.5f, 0.5f);
+								var yMod = Random.Range (-0.25f, 0.25f);
+								var viiru = Instantiate (Veriviiru) as Transform;
+				
+				
+								// Assign position
+								viiru.position = transform.position;
+								viiru.position = new Vector3 (viiru.position.x+xMod, viiru.position.y + yMod, viiru.position.z);
+								//lammikko.position.y = lammikko.position.y + 3.0f;
+								viiruTimer = 0.0f;
+						//}
 				}
 	
 	}
@@ -68,6 +92,24 @@ public class PomppivaPaa : MonoBehaviour {
 			gameObject.collider2D.isTrigger = false;
 		}
 
+	void OnCollisionHit2D(Collider2D col) {
+		if (bloodCounter < 10.0f && !noSplatters && viiruTimer>0.05f) {
+			
+			if (gameObject.transform.localEulerAngles.z > 285.0f || gameObject.transform.localEulerAngles.z < 75.0f) {
+				//if (gameObject.transform.localEulerAngles.z >= -0.2f && gameObject.transform.localEulerAngles.z <= 0.2f) {
+				var yMod = Random.Range(-0.1f,0.1f);
+				var viiru = Instantiate (Veriviiru) as Transform;
+
+				
+				// Assign position
+				viiru.position = transform.position;
+				viiru.position = new Vector3(viiru.position.x, viiru.position.y+yMod, viiru.position.z);
+				//lammikko.position.y = lammikko.position.y + 3.0f;
+				viiruTimer=0.0f;
+			}
+		}
+
+		}
 
 	void OnCollisionEnter2D(Collision2D col) {
 		//dropTimer = 0f;

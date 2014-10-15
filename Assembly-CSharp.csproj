@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\PlayerControllerScript.cs" />
      <Compile Include="Assets\Scripts\PomppivaPaa.cs" />
      <Compile Include="Assets\Scripts\RampautusScript.cs" />
+     <Compile Include="Assets\Scripts\VeriLammikonMuotoilija.cs" />
      <Compile Include="Assets\Scripts\VeriLentaa.cs" />
      <Compile Include="Assets\Scripts\Verilammikoija.cs" />
  <Reference Include="UnityEngine.UI">
