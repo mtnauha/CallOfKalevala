@@ -1,9 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyControllerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUILoader.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyControllerScript.cs" Line="116" Column="42" />
-      <File FileName="Assets\Scripts\PlayerControllerScript.cs" Line="85" Column="35" />
+      <File FileName="Assets/Scripts/MenuObject.cs" Line="15" Column="42" />
+      <File FileName="Assets/Scripts/MouseDebug.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/QuitGameButton.cs" Line="8" Column="3" />
+      <File FileName="Assets/Scripts/StartGameButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUITestScript.cs" Line="6" Column="1" />
+      <File FileName="Assets/Scripts/RayCastExample.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUILoader.cs" Line="6" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
