@@ -4,6 +4,7 @@ using System.Collections;
 public class Verilammikoija : MonoBehaviour {
 
 	public Transform Verilammikko;
+	//public Transform Veriroiske;
 	float dropTimer = 0f;
 	bool lammikkoLuotu = false;
 	bool luoBlammikko = false;
@@ -11,6 +12,9 @@ public class Verilammikoija : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+	
+
 		var number = Random.Range(10f,40f);
 		if (number > 20f) {
 						luoBlammikko = true;

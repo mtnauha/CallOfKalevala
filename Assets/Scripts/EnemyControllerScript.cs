@@ -109,6 +109,11 @@ public class EnemyControllerScript : MonoBehaviour {
 				anim.SetTrigger ("Die");
 			} else {
 				anim.SetTrigger ("Damage");
+				if (health > 0f) {
+					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
+					//ottiOsumaaTimer=0f;
+					//ottiOsumaa=true;
+				}
 			}
 		}
 	}
