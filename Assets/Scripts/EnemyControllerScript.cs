@@ -12,6 +12,7 @@ public class EnemyControllerScript : MonoBehaviour {
 	private float moveHorizontal = 0;
 	private float moveVertical = 0;
 	private float attackCooldown;
+	private bool headChopped;
 
 	Animator anim;
 	GameObject hero;
@@ -26,6 +27,7 @@ public class EnemyControllerScript : MonoBehaviour {
 		health = 100;
 		attackCooldown = 0;
 		dead = false;
+		headChopped = false;
 	}
 	
 	// Update is called once per frame
@@ -102,20 +104,32 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	void ApplyDamage(int damage) {
 		if (!dead) {
-			health -= damage;
+						health -= damage;
 
-			if (health <= 0) {
-				SetDead();
-				anim.SetTrigger ("Die");
-			} else {
-				anim.SetTrigger ("Damage");
-				if (health > 0f) {
-					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
-					//ottiOsumaaTimer=0f;
-					//ottiOsumaa=true;
-				}
-			}
-		}
+						if (health <= 0) {
+								SetDead ();
+
+
+				
+								var number = Random.Range (10f, 20f);
+								if (number < 15f && !headChopped) {
+										anim.SetTrigger ("HeadChop");
+										headChopped = true;
+										gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();
+								} else {
+										gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
+										anim.SetTrigger ("Die");
+								}
+
+						} else {
+								anim.SetTrigger ("Damage");
+								if (health > 0f) {
+										gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
+										//ottiOsumaaTimer=0f;
+										//ottiOsumaa=true;
+								}
+						}
+				} 
 	}
 
 	void inflictDamageToPlayer(int damage) {

@@ -58,7 +58,7 @@ TextureImporter:
         width: 130
         height: 250
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: barbarian-spritet-gore1_4Xc_1
       rect:
@@ -68,7 +68,7 @@ TextureImporter:
         width: 6
         height: 7
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: barbarian-spritet-gore1_4Xc_2
       rect:
@@ -78,7 +78,7 @@ TextureImporter:
         width: 206
         height: 154
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: barbarian-spritet-gore1_4Xc_3
       rect:
@@ -88,7 +88,7 @@ TextureImporter:
         width: 259
         height: 86
       alignment: 7
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: barbarian-spritet-gore1_4Xc_4
       rect:
@@ -107,8 +107,8 @@ TextureImporter:
         y: 7
         width: 154
         height: 218
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
