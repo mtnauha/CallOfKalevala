@@ -4551,6 +4551,10 @@ Prefab:
       propertyPath: Veriviiru
       value: 
       objectReference: {fileID: 2069274601}
+    - target: {fileID: 5000000, guid: 89a617666a5328040802b51de103f9d4, type: 2}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89a617666a5328040802b51de103f9d4, type: 2}
   m_RootGameObject: {fileID: 899801196}
@@ -4867,6 +4871,10 @@ Prefab:
       propertyPath: Veriviiru
       value: 
       objectReference: {fileID: 2069274601}
+    - target: {fileID: 5000000, guid: 87cc4fdcc0cff6e4d8d7a1983c961089, type: 2}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87cc4fdcc0cff6e4d8d7a1983c961089, type: 2}
   m_RootGameObject: {fileID: 839607143}
@@ -5122,7 +5130,7 @@ Rigidbody2D:
     type: 2}
   m_PrefabInternal: {fileID: 739954649}
   m_GameObject: {fileID: 839607143}
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -5298,7 +5306,7 @@ Rigidbody2D:
     type: 2}
   m_PrefabInternal: {fileID: 497985305}
   m_GameObject: {fileID: 899801196}
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1

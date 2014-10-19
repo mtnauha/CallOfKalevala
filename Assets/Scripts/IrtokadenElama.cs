@@ -16,6 +16,7 @@ public class IrtokadenElama : MonoBehaviour {
 	public Transform Verilammikko;
 	public Transform Veriviiru;
 	Animator anim;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -44,17 +45,19 @@ public class IrtokadenElama : MonoBehaviour {
 		if (xMod > 0.0f) {
 			Flip ();
 		}
+		gameObject.rigidbody2D.AddTorque (1000f);
 		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		
+
 				
 
 						dropTimer += Time.deltaTime;
 		viiruTimer += Time.deltaTime;
+
 				
 		if (gameObject.name.Contains("(Clone)") && viiruTimer > 0.025f && dropTimer < 0.75f) {
 			
