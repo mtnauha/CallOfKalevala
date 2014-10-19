@@ -54,7 +54,7 @@ public class PomppivaPaa : MonoBehaviour {
 			gameObject.collider2D.enabled = true;
 				}
 
-		if (bloodCounter < 10.0f && !noSplatters && viiruTimer > 0.05f && dropTimer > 0.25f && dropTimer < 12.0f) {
+		if (gameObject.name.Contains("(Clone)") && bloodCounter < 10.0f && !noSplatters && viiruTimer > 0.05f && dropTimer > 0.25f && dropTimer < 12.0f) {
 			
 						//if (gameObject.transform.localEulerAngles.z > 285.0f || gameObject.transform.localEulerAngles.z < 75.0f) {
 								//if (gameObject.transform.localEulerAngles.z >= -0.2f && gameObject.transform.localEulerAngles.z <= 0.2f) {

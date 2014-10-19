@@ -13,6 +13,7 @@ public class EnemyControllerScript : MonoBehaviour {
 	private float moveVertical = 0;
 	private float attackCooldown;
 	private bool headChopped;
+	private bool armChopped;
 
 	Animator anim;
 	GameObject hero;
@@ -28,6 +29,7 @@ public class EnemyControllerScript : MonoBehaviour {
 		attackCooldown = 0;
 		dead = false;
 		headChopped = false;
+		armChopped = false;
 	}
 	
 	// Update is called once per frame
@@ -111,11 +113,16 @@ public class EnemyControllerScript : MonoBehaviour {
 
 
 				
-								var number = Random.Range (10f, 20f);
-								if (number < 15f && !headChopped) {
+								var number = Random.Range (10f, 30f);
+								if (number < 15f && !headChopped && !armChopped) {
 										anim.SetTrigger ("HeadChop");
 										headChopped = true;
-										gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();
+										gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();}
+
+								else if (number < 20f && !headChopped && !armChopped) {
+										anim.SetTrigger ("ArmChop");
+										armChopped = true;
+									gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrcKasi ();
 								} else {
 										gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
 										anim.SetTrigger ("Die");

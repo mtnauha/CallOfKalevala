@@ -5,6 +5,7 @@ public class MestausScript : MonoBehaviour
 
 	public Transform Irtopaa;
 	public Transform IrtopaaOrc;
+	public Transform IrtokasiOrc;
 	public Transform VerisuihkuPerus;
 	public Transform Veriroiske;
 	
@@ -75,6 +76,25 @@ public class MestausScript : MonoBehaviour
 		suihkauta ();
 		
 	}
+
+	public void katkaiseOrcKasi()
+	{
+		
+		//var headTransform = Instantiate(Head, Vector3.zero, Quaternion.identity) as GameObject;
+		
+		
+		headCooldown = shootingRate;
+		
+		// Create a new shot
+		var kasiTransform = Instantiate(IrtokasiOrc) as Transform;
+		
+		// Assign position
+		kasiTransform.position = transform.position;
+		kasiTransform.renderer.sortingOrder = 30;
+		suihkauta ();
+		
+	}
+
 
 	public void suihkauta()
 	{

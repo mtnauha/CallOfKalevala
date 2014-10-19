@@ -8,13 +8,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 212: {fileID: 21200000}
+  - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
-  - 61: {fileID: 6100000}
   - 95: {fileID: 9500000}
+  - 212: {fileID: 21200000}
   m_Layer: 0
-  m_Name: Veriroiske
+  m_Name: IrtoKasi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.72303867, y: -2.02147245, z: 10}
+  m_LocalPosition: {x: 5.36219978, y: -2.02150011, z: 10}
   m_LocalScale: {x: .769999981, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,7 +40,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 100000}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 1.04999995
+  m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 0
   m_IsKinematic: 0
@@ -55,7 +55,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!95 &9500000
@@ -67,7 +67,7 @@ Animator:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c99ced513364abd4d84c0ccd3a46cc58, type: 2}
+  m_Controller: {fileID: 9100000, guid: 769a907866b56ee468094610b7dcea25, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -81,10 +81,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d6d5550977b3dd4a8695d8d69fa838f, type: 3}
+  m_Script: {fileID: 11500000, guid: d28cf713bd4cedf49a92f20f29001212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Verilammikko: {fileID: 0}
+  Veriviiru: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -104,8 +105,8 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: d3ebf76594c930f4f8c92835fe5b8d3b, type: 3}
+  m_SortingOrder: 33
+  m_Sprite: {fileID: 21300002, guid: e7547cf51a4d72a45b1b7323d6beae20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

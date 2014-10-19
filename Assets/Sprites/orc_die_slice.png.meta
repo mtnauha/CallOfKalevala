@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: 2414661818a74d046abf4cc329a65a90
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: orc_die_slice
+    21300002: orc_die_slice_0
+    21300004: orc_die_slice_1
+    21300006: orc_die_slice_2
+    21300008: orc_die_slice_3
+    21300010: orc_die_slice_4
+    21300012: orc_die_slice_5
+    21300014: orc_die_slice_6
+    21300016: orc_die_slice_7
+    21300018: orc_die_slice_8
+    21300020: orc_die_slice_9
+    21300022: orc_die_slice_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: orc_die_slice_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1
+        width: 131
+        height: 218
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_1
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 157
+        width: 8
+        height: 9
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_2
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 125
+        width: 18
+        height: 11
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_3
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 133
+        width: 6
+        height: 7
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_4
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 110
+        width: 19
+        height: 11
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_5
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 117
+        width: 10
+        height: 11
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_6
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 113
+        width: 6
+        height: 7
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_7
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1
+        width: 376
+        height: 75
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_8
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 49
+        width: 7
+        height: 6
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_9
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 84
+        width: 19
+        height: 10
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: orc_die_slice_10
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 3
+        width: 267
+        height: 176
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
