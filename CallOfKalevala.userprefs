@@ -1,19 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MestausScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerControllerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\MestausScript.cs" Line="67" Column="17" />
-      <File FileName="Assets\Scripts\MestausScript.cs" Line="207" Column="1" />
-      <File FileName="Assets\Scripts\Roiskija.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\RoiskeenElama.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PomppivaPaa.cs" Line="57" Column="3" />
-      <File FileName="Assets\Scripts\EnemyControllerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Verilammikoija.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerControllerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\RampautusScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\VeriLentaa.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\VeriLammikonMuotoilija.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\IrtokadenElama.cs" Line="12" Column="2" />
+      <File FileName="Assets/Scripts/PlayerControllerScript.cs" Line="110" Column="24" />
+      <File FileName="../../Documents/Testi1/Assets/Scripts/Player/PlayerHealth.cs" Line="13" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

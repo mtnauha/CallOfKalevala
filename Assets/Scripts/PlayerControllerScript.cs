@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerControllerScript : MonoBehaviour {
@@ -13,14 +14,22 @@ public class PlayerControllerScript : MonoBehaviour {
 	private bool ottiOsumaa = false;
 	private float ottiOsumaaTimer = 0f;
 
+	public Slider healthSlider;
+	public Image limited;
+	public float flashSpeed = 5f;
+	public Color flashColour = new Color(1f, 0f, 0f, 0.8f);
+	
 	Animator anim;
+	bool valahdys = false;
 
 	//Stats
 	public int health;
 
 	// Use this for initialization
 	void Start () {
+
 		anim = GetComponent<Animator> ();
+
 	}
 
 	void Update () {
@@ -34,6 +43,16 @@ public class PlayerControllerScript : MonoBehaviour {
 			}
 		}
 
+		if(valahdys)
+		{
+			limited.color = flashColour;
+		}
+		else
+		{
+			limited.color = Color.Lerp (limited.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
+		valahdys = false;
+		
 	}
 	
 	// Update is called once per frame
@@ -85,7 +104,11 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	void ApplyDamage(int damage) {
+
 		health -= damage;
+
+		healthSlider.value = health;
+		valahdys = true;
 
 		var number = Random.Range(10f,20f);
 
