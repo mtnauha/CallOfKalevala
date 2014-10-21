@@ -47,7 +47,7 @@ public class MestausScript : MonoBehaviour
 		if (gameObject.name.Contains ("(Clone)") && bloodTimer > 0.45f && !lisaSuihkausA && (orcinKasi || sankarinPaa)) {
 			suihkauta ();
 			lisaSuihkausA=true;
-				}
+		}
 		if (gameObject.name.Contains ("(Clone)") && bloodTimer > 1.25f && !lisaSuihkausB && orcinKasi) {
 			suihkauta ();
 			lisaSuihkausB=true;

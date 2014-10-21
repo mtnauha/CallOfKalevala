@@ -43,12 +43,9 @@ public class PlayerControllerScript : MonoBehaviour {
 			}
 		}
 
-		if(valahdys)
-		{
+		if(valahdys) {
 			limited.color = flashColour;
-		}
-		else
-		{
+		} else {
 			limited.color = Color.Lerp (limited.color, Color.clear, flashSpeed * Time.deltaTime);
 		}
 		valahdys = false;
@@ -61,7 +58,11 @@ public class PlayerControllerScript : MonoBehaviour {
 		float moveVertical = Input.GetAxis ("Vertical");
 
 		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack")) {
-			anim.SetFloat ("Speed", Mathf.Abs (moveHorizontal + moveVertical));
+			if(Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical)) {
+				anim.SetFloat ("Speed", Mathf.Abs (moveHorizontal));
+			} else {
+				anim.SetFloat ("Speed", Mathf.Abs (moveVertical));
+			}
 			rigidbody2D.velocity = new Vector2 (moveHorizontal * maxSpeed, moveVertical * maxSpeed);
 		} else {
 			anim.SetFloat ("Speed", 0);

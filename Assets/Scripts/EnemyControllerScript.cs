@@ -55,17 +55,30 @@ public class EnemyControllerScript : MonoBehaviour {
 
 			//Liikutetaan vihollista pelaajan suuntaan, jos ei olla oikealla etäisyydellä tai syvyydellä
 			if (!enemyWithinAttackRange || !IsOnSameVerticalLevelWithHero()) {
-				if ((hero.transform.position.x - this.transform.position.x) > 0.2f) {
+				float xIncrease = 2f;
+				
+				if(hero.transform.position.x - this.transform.position.x >= 0) {
+					xIncrease = -2f;
+				}
+				
+				Vector3 targetPosition = new Vector3(hero.transform.position.x + xIncrease, hero.transform.position.y, hero.transform.position.z);
+
+				if(hero.transform.position.z > this.transform.position.z) {
+					Debug.Log("Pelaajan koordinaatit: z: " + hero.transform.position.z);
+					Debug.Log("Omat koordinaatit: z: " + this.transform.position.z);
+				}
+
+				if ((targetPosition.x - this.transform.position.x) > 0.2f) {
 					moveHorizontal = 1;
-				} else if ((hero.transform.position.x - this.transform.position.x) < 0) {
+				} else if ((targetPosition.x - this.transform.position.x) < 0) {
 					moveHorizontal = -1;
 				} else {
 					moveHorizontal = 0;
 				}
 				
-				if ((hero.transform.position.y - this.transform.position.y) > 0.2f) {
+				if ((targetPosition.y - this.transform.position.y) > 0.2f) {
 					moveVertical = 1;
-				} else if ((hero.transform.position.y - this.transform.position.y) < 0) {
+				} else if ((targetPosition.y - this.transform.position.y) < 0) {
 					moveVertical = -1;
 				} else {
 					moveVertical = 0;
@@ -106,41 +119,38 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	void ApplyDamage(int damage) {
 		if (!dead) {
-						health -= damage;
+			health -= damage;
 
-						if (health <= 0) {
-								SetDead ();
+			if (health <= 0) {
+				SetDead ();
 
+				var number = Random.Range (10f, 30f);
+				if (number < 15f && !headChopped && !armChopped) {
+					anim.SetTrigger ("HeadChop");
+					headChopped = true;
+					gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();
+				} else if (number < 20f && !headChopped && !armChopped) {
+					anim.SetTrigger ("ArmChop");
+					armChopped = true;
+					gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrcKasi ();
+				} else {
+					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
+					anim.SetTrigger ("Die");
+				}
 
-				
-								var number = Random.Range (10f, 30f);
-								if (number < 15f && !headChopped && !armChopped) {
-										anim.SetTrigger ("HeadChop");
-										headChopped = true;
-										gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();}
-
-								else if (number < 20f && !headChopped && !armChopped) {
-										anim.SetTrigger ("ArmChop");
-										armChopped = true;
-									gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrcKasi ();
-								} else {
-										gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
-										anim.SetTrigger ("Die");
-								}
-
-						} else {
-								anim.SetTrigger ("Damage");
-								if (health > 0f) {
-										gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
-										//ottiOsumaaTimer=0f;
-										//ottiOsumaa=true;
-								}
-						}
-				} 
+			} else {
+				anim.SetTrigger ("Damage");
+				if (health > 0f) {
+					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
+				}
+			}
+		} 
 	}
 
 	void inflictDamageToPlayer(int damage) {
-		hero.SendMessage("ApplyDamage", damage);
+		if (IsOnSameVerticalLevelWithHero()) {
+			hero.SendMessage("ApplyDamage", damage);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
