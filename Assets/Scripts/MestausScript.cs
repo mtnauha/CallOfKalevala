@@ -98,7 +98,7 @@ public class MestausScript : MonoBehaviour
 		
 		// Assign position
 		headTransform.position = transform.position;
-		headTransform.renderer.sortingLayerName = "Verilammikko";
+		headTransform.renderer.sortingLayerName = "BloodInFront";
 		suihkauta ();
 		
 	}
@@ -117,7 +117,7 @@ public class MestausScript : MonoBehaviour
 		
 		// Assign position
 		headTransform.position = transform.position;
-		headTransform.renderer.sortingLayerName = "Verilammikko";
+		headTransform.renderer.sortingLayerName = "BloodInFront";
 		suihkauta ();
 		
 	}
@@ -153,12 +153,12 @@ public class MestausScript : MonoBehaviour
 		var xMod = Random.Range(-0.01f,0.01f);
 		var yMod = Random.Range(-0.01f,0.01f);
 		var montako = Random.Range(-0.01f,5.0f);
-		
+
 		
 		
 		// Assign position
 		suihku.position = transform.position;
-		
+		suihku.renderer.sortingLayerName = "BloodInFront";
 		
 		// Assign position
 		suihku.position = new Vector3(suihku.position.x+xMod, suihku.position.y+yMod, suihku.position.z);
@@ -168,13 +168,14 @@ public class MestausScript : MonoBehaviour
 		roiske.position = transform.position;
 		roiske.position = new Vector3(suihku.position.x+xMod, suihku.position.y+yMod, suihku.position.z);
 		roiske.transform.localScale -= new Vector3(0.5f,0.5f,0.5f);
-
+		roiske.renderer.sortingLayerName = "BloodInFront";
 
 		if (montako > 3.0f) {
 						roiske = Instantiate (Veriroiske) as Transform;
 						roiske.position = transform.position;
 						roiske.position = new Vector3 (suihku.position.x + xMod, suihku.position.y + yMod, suihku.position.z);
 						roiske.transform.localScale -= new Vector3 (0.5f, 0.5f, 0.5f);
+						roiske.renderer.sortingLayerName = "BloodInFront";
 				}
 
 
@@ -184,12 +185,14 @@ public class MestausScript : MonoBehaviour
 						roiske.position = transform.position;
 						roiske.position = new Vector3 (suihku.position.x + xMod, suihku.position.y + yMod, suihku.position.z);
 						roiske.transform.localScale -= new Vector3 (0.5f, 0.5f, 0.5f);
+						roiske.renderer.sortingLayerName = "BloodInFront";
 				}
 
 		roiske = Instantiate(Veriroiske) as Transform;
 		roiske.position = transform.position;
 		roiske.position = new Vector3(suihku.position.x+xMod, suihku.position.y+yMod, suihku.position.z);
 		roiske.transform.localScale -= new Vector3(0.5f,0.5f,0.5f);
+		roiske.renderer.sortingLayerName = "BloodInFront";
 
 		//WaitForSeconds (0.3f);
 
@@ -198,6 +201,7 @@ public class MestausScript : MonoBehaviour
 		roiske.position = transform.position;
 		roiske.position = new Vector3(suihku.position.x+xMod, suihku.position.y+yMod, suihku.position.z);
 		roiske.transform.localScale -= new Vector3(0.5f,0.5f,0.5f);
+		roiske.renderer.sortingLayerName = "BloodInFront";
 	}
 
 

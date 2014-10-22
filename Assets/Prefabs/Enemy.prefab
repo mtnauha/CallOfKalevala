@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ArmLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400002}
   - 95: {fileID: 9500000}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400004}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: VahinkoSektori
   m_TagString: verisuihku
   m_Icon: {fileID: 0}
@@ -62,9 +62,25 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 114: {fileID: 11400006}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: HeadLocation
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400008}
+  - 61: {fileID: 6100004}
+  m_Layer: 10
+  m_Name: EnemyShape
+  m_TagString: EnemyShape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +110,7 @@ Transform:
   - {fileID: 400000}
   - {fileID: 400004}
   - {fileID: 400006}
+  - {fileID: 400008}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400004
@@ -120,6 +137,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 2
+--- !u!4 &400008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.59679997, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
+  m_RootOrder: 3
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -157,6 +186,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1, y: .200000003}
   m_Center: {x: .100000001, y: .140000001}
+--- !u!61 &6100004
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1.05702949, y: 1.96950912}
+  m_Center: {x: .0285148621, y: -.484754682}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -200,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5a7bba15dcacf4ebecc37d3ba38273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1
+  maxSpeed: 3
   maxAttackCooldown: 2
   health: 100
 --- !u!114 &11400004
@@ -251,8 +291,8 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
-  m_SortingOrder: 19
+  m_SortingLayerID: 3426787519
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300002, guid: 6aeff83fdd6f04f4cb0a20f46bdc9498, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

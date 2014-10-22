@@ -36,6 +36,7 @@ public class Verilammikoija : MonoBehaviour {
 		
 			veriTransform.position = transform.position;
 			veriTransform.position = new Vector3(veriTransform.position.x+xMod, veriTransform.position.y+yMod, veriTransform.position.z);
+			//veriTransform.renderer.sortingLayerName = "BloodInBack";
 			luoBlammikko=false;
 				}
 
@@ -51,6 +52,7 @@ public class Verilammikoija : MonoBehaviour {
 
 			veriTransform.position = transform.position;
 			veriTransform.position = new Vector3(veriTransform.position.x+xMod, veriTransform.position.y+yMod, veriTransform.position.z);
+			//veriTransform.renderer.sortingLayerName = "BloodInBack";
 
 			}
 
@@ -61,6 +63,7 @@ public class Verilammikoija : MonoBehaviour {
 			
 			veriTransform.position = transform.position;
 			veriTransform.position = new Vector3(veriTransform.position.x+xMod, veriTransform.position.y+yMod, veriTransform.position.z);
+			//veriTransform.renderer.sortingLayerName = "BloodInBack";
 			luoClammikko=false;
 		}
 

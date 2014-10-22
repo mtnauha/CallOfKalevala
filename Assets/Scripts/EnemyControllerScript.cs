@@ -117,6 +117,17 @@ public class EnemyControllerScript : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
+	void Decapitate() {
+		if (!headChopped) {
+						health = -50;
+				
+						anim.SetTrigger ("HeadChop");
+						headChopped = true;
+						gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();
+						SetDead ();
+				}
+		}
+
 	void ApplyDamage(int damage) {
 		if (!dead) {
 			health -= damage;
@@ -148,21 +159,23 @@ public class EnemyControllerScript : MonoBehaviour {
 	}
 
 	void inflictDamageToPlayer(int damage) {
-		if (IsOnSameVerticalLevelWithHero()) {
+		if (IsOnSameVerticalLevelWithHero() && enemyWithinAttackRange) {
 			hero.SendMessage("ApplyDamage", damage);
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag == "Hero") {
+		if (col.gameObject.tag == "HeroShape") {
 			enemyWithinAttackRange = true;
 		}
+			
 	}
 
 	void OnTriggerExit2D(Collider2D col) {
-		if (col.gameObject.tag == "Hero") {
+		if (col.gameObject.tag == "HeroShape") {
 			enemyWithinAttackRange = false;
 		}
+
 	}
 
 	bool IsOnSameVerticalLevelWithHero() {

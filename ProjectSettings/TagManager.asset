@@ -10,6 +10,10 @@ TagManager:
   - ylaraja
   - maa
   - Verimaa
+  - EnemyShape
+  - HeroShape
+  - KaannyTyhma
+  - PowerAttackArea
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -21,8 +25,8 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: Roiske
   User Layer 9: 
-  User Layer 10: 
-  User Layer 11: 
+  User Layer 10: Hero
+  User Layer 11: Enemy
   User Layer 12: 
   User Layer 13: Verilammikko
   User Layer 14: Tausta
@@ -48,7 +52,19 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: BloodInBack
+    userID: 3
+    uniqueID: 1742914099
+    locked: 0
   - name: Characters
     userID: 1
     uniqueID: 3426787519
+    locked: 0
+  - name: BloodInFront
+    userID: 2
+    uniqueID: 2999925751
+    locked: 0
+  - name: New Layer 4
+    userID: 4
+    uniqueID: 3307095091
     locked: 0

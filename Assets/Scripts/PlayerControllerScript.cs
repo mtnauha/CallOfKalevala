@@ -12,7 +12,10 @@ public class PlayerControllerScript : MonoBehaviour {
 	private bool paaPoikki = false;
 	private bool jalkaPoikki = false;
 	private bool ottiOsumaa = false;
+	private bool attacking = false;
+	private bool powerattacking = false;
 	private float ottiOsumaaTimer = 0f;
+	private float attackTimer=0f;
 
 	public Slider healthSlider;
 	public Image limited;
@@ -33,14 +36,43 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKeyDown ("space")) {
-			anim.SetTrigger ("Attack");
+		if (attacking || powerattacking) {
+			attackTimer+=Time.deltaTime;
+				}
 
+		if (Input.GetKeyDown ("space") && !powerattacking && !attacking) {
+						anim.SetTrigger ("Attack");
+						attacking = true;
+				}
+
+		if (Input.GetKeyDown ("left ctrl") && !attacking && !powerattacking) {
+			anim.SetTrigger ("PowerAttack");
+			powerattacking = true;
+			//moveHorizontal = 10f;
+			//anim.SetFloat ("Speed", Mathf.Abs (40.0f));
+		}
+
+		if (attacking && attackTimer>0.20f) {
 			foreach(GameObject enemy in enemiesWithinAttackRange) {
 				if(IsOnSameVerticalLevelWithEnemy(enemy)) {
 					InflictDamageToEnemy(enemy, 20);
 				}
 			}
+			attacking = false;
+			attackTimer=0.0f;
+		}
+
+		if (powerattacking && attackTimer>0.50f) {
+			foreach(GameObject enemy in enemiesWithinAttackRange) {
+				if(IsOnExactVerticalLevelWithEnemy(enemy)) {
+					DecapitateEnemy(enemy);
+				}
+				else if(IsOnSameVerticalLevelWithEnemy(enemy)) {
+					InflictDamageToEnemy(enemy, 1000);
+				}
+			}
+			powerattacking = false;
+			attackTimer=0.0f;
 		}
 
 		if(valahdys) {
@@ -57,7 +89,21 @@ public class PlayerControllerScript : MonoBehaviour {
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
 
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack")) {
+		if (powerattacking) {
+						if (facingRight) {
+								moveHorizontal = 1.33f;
+						} else {
+								moveHorizontal = -1.33f;
+						}
+				}
+	    if (attacking) {
+
+					moveHorizontal = moveHorizontal/2;
+					
+				}
+			
+
+		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base.PowerAttack")) {
 			if(Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical)) {
 				anim.SetFloat ("Speed", Mathf.Abs (moveHorizontal));
 			} else {
@@ -93,14 +139,22 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag == "Enemy") {
-			enemiesWithinAttackRange.Add(col.gameObject);
+		if (col.gameObject.tag == "EnemyShape") {
+
+
+			enemiesWithinAttackRange.Add(col.transform.parent.gameObject);
+		}
+
+	 	if (col.gameObject.tag == "KaannyTyhma") {
+			col.transform.parent.gameObject.SendMessage("Flip");
+
+		
 		}
 	}
 	
 	void OnTriggerExit2D(Collider2D col) {
-		if (col.gameObject.tag == "Enemy") {
-			enemiesWithinAttackRange.Remove(col.gameObject);
+		if (col.gameObject.tag == "EnemyShape") {
+			enemiesWithinAttackRange.Remove(col.transform.parent.gameObject);
 		}
 	}
 
@@ -139,10 +193,24 @@ public class PlayerControllerScript : MonoBehaviour {
 		enemy.SendMessage("ApplyDamage", 20);
 	}
 
+	void DecapitateEnemy(GameObject enemy) {
+		enemy.SendMessage("Decapitate");
+	}
+
 	bool IsOnSameVerticalLevelWithEnemy(GameObject enemy) {
 		float yDifference = (enemy.transform.position.y - this.transform.position.y);
 		
 		if (Mathf.Abs(yDifference) > 0.2f) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	bool IsOnExactVerticalLevelWithEnemy(GameObject enemy) {
+		float yDifference = (enemy.transform.position.y - this.transform.position.y);
+		
+		if (Mathf.Abs(yDifference) > 0.05f) {
 			return false;
 		} else {
 			return true;

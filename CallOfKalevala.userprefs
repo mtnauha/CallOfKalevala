@@ -1,9 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerControllerScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyControllerScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerControllerScript.cs" Line="110" Column="24" />
-      <File FileName="../../Documents/Testi1/Assets/Scripts/Player/PlayerHealth.cs" Line="13" Column="1" />
+      <File FileName="Assets\Scripts\EnemyControllerScript.cs" Line="128" Column="6" />
+      <File FileName="Assets\Scripts\PlayerControllerScript.cs" Line="66" Column="59" />
+      <File FileName="Assets\Scripts\RoiskeenElama.cs" Line="45" Column="3" />
+      <File FileName="Assets\Scripts\Verilammikoija.cs" Line="66" Column="6" />
+      <File FileName="Assets\Scripts\VeriLammikonMuotoilija.cs" Line="22" Column="3" />
+      <File FileName="Assets\Scripts\VeriLentaa.cs" Line="33" Column="3" />
+      <File FileName="Assets\Scripts\MestausScript.cs" Line="204" Column="53" />
+      <File FileName="Assets\Scripts\ParticlesToFront.cs" Line="26" Column="1" />
+      <File FileName="Assets\Scripts\PomppivaPaa.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\IrtokadenElama.cs" Line="89" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

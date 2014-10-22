@@ -1,0 +1,136 @@
+fileFormatVersion: 2
+guid: ef646827e1cce1748b5a1fb2a9541888
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: joukahainen-ani_4X
+    21300002: joukahainen-ani_4X_0
+    21300004: joukahainen-ani_4X_1
+    21300006: joukahainen-ani_4X_2
+    21300008: joukahainen-ani_4X_3
+    21300010: joukahainen-ani_4X_4
+    21300012: joukahainen-ani_4X_5
+    21300014: joukahainen-ani_4X_6
+    21300016: joukahainen-ani_4X_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: joukahainen-ani_4X_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 106
+        width: 134
+        height: 255
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: joukahainen-ani_4X_1
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 115
+        width: 143
+        height: 250
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: joukahainen-ani_4X_2
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 106
+        width: 130
+        height: 255
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: joukahainen-ani_4X_3
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 94
+        width: 170
+        height: 255
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: joukahainen-ani_4X_4
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 98
+        width: 284
+        height: 243
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: joukahainen-ani_4X_5
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 94
+        width: 114
+        height: 11
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: joukahainen-ani_4X_6
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 94
+        width: 130
+        height: 11
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: joukahainen-ani_4X_7
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 94
+        width: 114
+        height: 11
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

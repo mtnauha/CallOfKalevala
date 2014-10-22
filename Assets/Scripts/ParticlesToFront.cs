@@ -12,6 +12,7 @@ public class ParticlesToFront : MonoBehaviour {
 		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 		particleSystem.renderer.sortingLayerID = spriteRenderer.sortingLayerID;
 		particleSystem.renderer.sortingOrder = spriteRenderer.sortingOrder;
+		particleSystem.renderer.sortingLayerName = "BloodInFront";
 		//kulma = particleSystem.transform.localEulerAngles.z;
 			}
 			

@@ -86,7 +86,7 @@ public class IrtokadenElama : MonoBehaviour {
 			anim.ResetTrigger("Ilmassa");
 			anim.SetTrigger ("Maassa");
 			gameObject.renderer.sortingOrder = 12;
-			
+			gameObject.renderer.sortingLayerName = "Verilammikko";
 
 			var veriTransform = Instantiate(Verilammikko) as Transform;
 
