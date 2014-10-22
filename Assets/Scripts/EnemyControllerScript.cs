@@ -111,10 +111,12 @@ public class EnemyControllerScript : MonoBehaviour {
 	}
 
 	void Flip() {
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		if (!dead) {
+						facingRight = !facingRight;
+						Vector3 theScale = transform.localScale;
+						theScale.x *= -1;
+						transform.localScale = theScale;
+				}
 	}
 
 	void Decapitate() {
@@ -135,15 +137,23 @@ public class EnemyControllerScript : MonoBehaviour {
 			if (health <= 0) {
 				SetDead ();
 
-				var number = Random.Range (10f, 30f);
+				var number = Random.Range (10f, 40f);
 				if (number < 15f && !headChopped && !armChopped) {
 					anim.SetTrigger ("HeadChop");
 					headChopped = true;
 					gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();
 				} else if (number < 20f && !headChopped && !armChopped) {
 					anim.SetTrigger ("ArmChop");
+
+					Vector3 theScale = transform.localScale;
+					theScale.x *= -1;
+					transform.localScale = theScale;
+
 					armChopped = true;
 					gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrcKasi ();
+				} else if (number < 30f && !headChopped && !armChopped) {
+					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
+					anim.SetTrigger ("DieHalves");
 				} else {
 					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
 					anim.SetTrigger ("Die");

@@ -50,6 +50,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: DieHalves
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base
@@ -195,7 +201,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: DieHalves
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -246,6 +252,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1101 &110150861
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 0}
+  m_DstState: {fileID: 110266020}
+  m_TransitionDuration: .100000001
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: DieHalves
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110151003
 Transition:
   serializedVersion: 2
@@ -286,6 +312,26 @@ Transition:
     m_ConditionEvent: HeadChop
     m_EventTreshold: 0
     m_ExitTime: .899999976
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
+--- !u!1101 &110180409
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110266020}
+  m_DstState: {fileID: 110279544}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -430,6 +476,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110266020
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: orc_die_in_half
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 67bd3f5689fbf3e40892fc682f907e2e, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 552, y: 156, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110273250
 State:
   m_ObjectHideFlags: 3
@@ -442,6 +503,21 @@ State:
   - {fileID: 7400000, guid: 88d6a3469ce9e0e479797f016ab3ec35, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: -264, y: -72, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110279544
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: orc_dead_halved
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 2979984de91c53c41914895232ef9158, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 828, y: 156, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -479,9 +555,15 @@ StateMachine:
   - {fileID: 110291659}
   - {fileID: 110237816}
   - {fileID: 110235188}
+  - {fileID: 110266020}
+  - {fileID: 110279544}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
+    data:
+      first: {fileID: 110266020}
+      second:
+      - {fileID: 110180409}
     data:
       first: {fileID: 0}
       second:
@@ -490,9 +572,7 @@ StateMachine:
       - {fileID: 110151003}
       - {fileID: 110152591}
       - {fileID: 110198280}
-    data:
-      first: {fileID: 110235188}
-      second: []
+      - {fileID: 110150861}
     data:
       first: {fileID: 110200000}
       second:
@@ -527,6 +607,9 @@ StateMachine:
       first: {fileID: 110237816}
       second:
       - {fileID: 110129738}
+    data:
+      first: {fileID: 110235188}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 348, y: 12, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
