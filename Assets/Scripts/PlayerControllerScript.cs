@@ -217,4 +217,11 @@ public class PlayerControllerScript : MonoBehaviour {
 		}
 	}
 
+	public bool isHeroAlive() {
+		if (health <= 0) {
+						return false;
+				}
+		return true;
+		}
+
 }

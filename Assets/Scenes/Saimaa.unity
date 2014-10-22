@@ -108,7 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 2.5
+  maxFastAttackCooldown: 1.5
   maxAttackCooldown: 2
+  Enemy: {fileID: 23879765}
   health: 100
 --- !u!95 &23879760
 Animator:
@@ -4504,6 +4506,10 @@ Prefab:
       propertyPath: maxSpeed
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 7e8c64073a42b1c459c43d73abfcfd82, type: 2}
+      propertyPath: Enemy
+      value: 
+      objectReference: {fileID: 23879765}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e8c64073a42b1c459c43d73abfcfd82, type: 2}
   m_RootGameObject: {fileID: 23879758}

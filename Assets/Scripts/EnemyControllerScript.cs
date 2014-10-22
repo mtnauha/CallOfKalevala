@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyControllerScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
+	public float maxFastAttackCooldown = 1.00f;
 	public float maxAttackCooldown = 2f;
 
 	private bool facingRight = false;
@@ -14,6 +15,9 @@ public class EnemyControllerScript : MonoBehaviour {
 	private float attackCooldown;
 	private bool headChopped;
 	private bool armChopped;
+	private bool oneToBeSure;
+
+	public Transform Enemy;
 
 	Animator anim;
 	GameObject hero;
@@ -30,6 +34,7 @@ public class EnemyControllerScript : MonoBehaviour {
 		dead = false;
 		headChopped = false;
 		armChopped = false;
+		oneToBeSure = false;
 	}
 	
 	// Update is called once per frame
@@ -46,8 +51,17 @@ public class EnemyControllerScript : MonoBehaviour {
 		if (!dead) {
 			attackCooldown -= Time.deltaTime;
 
-			if (enemyWithinAttackRange && IsOnSameVerticalLevelWithHero()) {
-				if (attackCooldown <= 0) {
+			if (enemyWithinAttackRange && IsOnSameVerticalLevelWithHero() && IsNearHorizontallLevelWithHero()) {
+				if (attackCooldown <= 0 && !oneToBeSure) {
+					if (!hero.GetComponent<PlayerControllerScript>().isHeroAlive()) {oneToBeSure=true;}
+					anim.SetTrigger ("FastAttack");
+					attackCooldown = maxFastAttackCooldown;
+				}
+			}
+
+			else if (enemyWithinAttackRange && IsOnSameVerticalLevelWithHero()) {
+				if (attackCooldown <= 0 && !oneToBeSure) {
+					if (!hero.GetComponent<PlayerControllerScript>().isHeroAlive()) {oneToBeSure=true;}
 					anim.SetTrigger ("Attack");
 					attackCooldown = maxAttackCooldown;
 				}
@@ -86,6 +100,7 @@ public class EnemyControllerScript : MonoBehaviour {
 			}
 			
 			if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("Orc_attack") &&
+			    !anim.GetCurrentAnimatorStateInfo (0).IsName ("orc_fast_attack") &&
 			    !anim.GetCurrentAnimatorStateInfo (0).IsName ("Orc_damage")) {
 
 				if(Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical)) {
@@ -188,6 +203,17 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	}
 
+	bool IsNearHorizontallLevelWithHero() {
+		float xDifference = (hero.transform.position.x - this.transform.position.x);
+		
+		if (Mathf.Abs(xDifference) > 2.5f) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+
 	bool IsOnSameVerticalLevelWithHero() {
 		float yDifference = (hero.transform.position.y - this.transform.position.y);
 
@@ -207,5 +233,10 @@ public class EnemyControllerScript : MonoBehaviour {
 		rigidbody2D.velocity = Vector2.zero;
 
 		transform.position = new Vector3 (transform.position.x, transform.position.y, 10);
+
+		var newenemy = Instantiate (Enemy) as Transform;
+		var xMod = Random.Range (-5.5f, 5.5f);
+		newenemy.position = transform.position;
+		newenemy.position = new Vector3 (0f+xMod, 0f, 0f);
 	}
 }
