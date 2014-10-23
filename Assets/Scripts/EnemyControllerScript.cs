@@ -234,9 +234,11 @@ public class EnemyControllerScript : MonoBehaviour {
 
 		transform.position = new Vector3 (transform.position.x, transform.position.y, 10);
 
+		/*
 		var newenemy = Instantiate (Enemy) as Transform;
 		var xMod = Random.Range (-5.5f, 5.5f);
 		newenemy.position = transform.position;
 		newenemy.position = new Vector3 (0f+xMod, 0f, 0f);
+		*/
 	}
 }
