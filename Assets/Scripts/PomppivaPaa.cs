@@ -21,8 +21,12 @@ public class PomppivaPaa : MonoBehaviour {
 		startVector = transform.position;
 		startY = transform.position.y;
 		noSplatters = true;
-		var v1Mod = Random.Range (100f, 200f);
-		var v2Mod = Random.Range (160f, 360f);
+		//var v1Mod = Random.Range (100f, 200f);
+		//var v2Mod = Random.Range (160f, 360f);
+
+		var v1Mod = Random.Range (-200f, 200f);
+		var v2Mod = Random.Range (-360f, 360f);
+
 		Vector2 v = new Vector2(v1Mod,v2Mod);
 		//Vector2 v = new Vector2(150f,260f);
 

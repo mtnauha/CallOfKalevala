@@ -21,9 +21,12 @@ public class PlayerControllerScript : MonoBehaviour {
 	public Image limited;
 	public float flashSpeed = 5f;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.8f);
-	
+	bool nowBlocking = false;
+	int blockCounter = 0;
+
 	Animator anim;
 	bool valahdys = false;
+	private bool hyokkaajanSuunta;
 
 	//Stats
 	public int health;
@@ -36,52 +39,73 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	void Update () {
-		if (attacking || powerattacking) {
-			attackTimer+=Time.deltaTime;
-				}
+		if (health > 0) {
+						if (attacking || powerattacking) {
+								attackTimer += Time.deltaTime;
+						}
 
-		if (Input.GetKeyDown ("space") && !powerattacking && !attacking) {
-						anim.SetTrigger ("Attack");
-						attacking = true;
-				}
+			if (Input.GetKeyDown ("e") && (attackTimer<=0.19f ||  (!powerattacking && !attacking))) {
+				powerattacking=false;
+				attacking=false;
+				attackTimer=0.0f;
+								if (!nowBlocking) {
+										anim.SetTrigger ("startBlock");
+								
+								}
 
-		if (Input.GetKeyDown ("left ctrl") && !attacking && !powerattacking) {
-			anim.SetTrigger ("PowerAttack");
-			powerattacking = true;
-			//moveHorizontal = 10f;
-			//anim.SetFloat ("Speed", Mathf.Abs (40.0f));
-		}
+						}
+						if (Input.GetKeyUp ("e") && nowBlocking) {
+								anim.SetTrigger ("startIdle");
+								nowBlocking = false;
+						}
 
-		if (attacking && attackTimer>0.20f) {
-			foreach(GameObject enemy in enemiesWithinAttackRange) {
-				if(IsOnSameVerticalLevelWithEnemy(enemy)) {
-					InflictDamageToEnemy(enemy, 20);
-				}
-			}
-			attacking = false;
-			attackTimer=0.0f;
-		}
+						if (Input.GetKeyDown ("space") && !powerattacking && !attacking) {
+								anim.SetTrigger ("Attack");
+								attacking = true;
+						}
 
-		if (powerattacking && attackTimer>0.50f) {
-			foreach(GameObject enemy in enemiesWithinAttackRange) {
-				if(IsOnExactVerticalLevelWithEnemy(enemy)) {
-					DecapitateEnemy(enemy);
-				}
-				else if(IsOnSameVerticalLevelWithEnemy(enemy)) {
-					InflictDamageToEnemy(enemy, 1000);
-				}
-			}
-			powerattacking = false;
-			attackTimer=0.0f;
-		}
 
-		if(valahdys) {
-			limited.color = flashColour;
-		} else {
-			limited.color = Color.Lerp (limited.color, Color.clear, flashSpeed * Time.deltaTime);
-		}
-		valahdys = false;
-		
+						if (Input.GetKeyDown ("space") && !powerattacking && !attacking) {
+								anim.SetTrigger ("Attack");
+								attacking = true;
+						}
+
+						if (Input.GetKeyDown ("left ctrl") && !attacking && !powerattacking) {
+								anim.SetTrigger ("PowerAttack");
+								powerattacking = true;
+								//moveHorizontal = 10f;
+								//anim.SetFloat ("Speed", Mathf.Abs (40.0f));
+						}
+
+						if (attacking && attackTimer > 0.20f) {
+								foreach (GameObject enemy in enemiesWithinAttackRange) {
+										if (IsOnSameVerticalLevelWithEnemy (enemy)) {
+												InflictDamageToEnemy (enemy, 20);
+										}
+								}
+								attacking = false;
+								attackTimer = 0.0f;
+						}
+
+						if (powerattacking && attackTimer > 0.50f) {
+								foreach (GameObject enemy in enemiesWithinAttackRange) {
+										if (IsOnExactVerticalLevelWithEnemy (enemy)) {
+												DecapitateEnemy (enemy);
+										} else if (IsOnSameVerticalLevelWithEnemy (enemy)) {
+												InflictDamageToEnemy (enemy, 1000);
+										}
+								}
+								powerattacking = false;
+								attackTimer = 0.0f;
+						}
+
+						if (valahdys) {
+								limited.color = flashColour;
+						} else {
+								limited.color = Color.Lerp (limited.color, Color.clear, flashSpeed * Time.deltaTime);
+						}
+						valahdys = false;
+				}
 	}
 	
 	// Update is called once per frame
@@ -91,9 +115,9 @@ public class PlayerControllerScript : MonoBehaviour {
 
 		if (powerattacking) {
 						if (facingRight) {
-								moveHorizontal = 1.33f;
+								moveHorizontal = 1.53f;
 						} else {
-								moveHorizontal = -1.33f;
+								moveHorizontal = -1.53f;
 						}
 				}
 	    if (attacking) {
@@ -103,7 +127,7 @@ public class PlayerControllerScript : MonoBehaviour {
 				}
 			
 
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base.PowerAttack")) {
+		if (health > 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base.Attack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base.PowerAttack") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Base.hero_block_hold")) {
 			if(Mathf.Abs(moveHorizontal) > Mathf.Abs(moveVertical)) {
 				anim.SetFloat ("Speed", Mathf.Abs (moveHorizontal));
 			} else {
@@ -115,9 +139,9 @@ public class PlayerControllerScript : MonoBehaviour {
 			rigidbody2D.velocity = Vector2.zero;
 		}
 
-		if (moveHorizontal > 0 && !facingRight)
+		if (health > 0 && moveHorizontal > 0 && !facingRight)
 			Flip ();
-		else if (moveHorizontal < 0 && facingRight)
+		else if (health > 0 && moveHorizontal < 0 && facingRight)
 			Flip ();
 
 		if (ottiOsumaa) {
@@ -132,10 +156,12 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	void Flip() {
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+
+						facingRight = !facingRight;
+						Vector3 theScale = transform.localScale;
+						theScale.x *= -1;
+						transform.localScale = theScale;
+				
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
@@ -158,34 +184,45 @@ public class PlayerControllerScript : MonoBehaviour {
 		}
 	}
 
+	void ApplyDamage(bool suunta) {
+		hyokkaajanSuunta = suunta;
+		}
+
 	void ApplyDamage(int damage) {
+		blockCounter--;
+		if (blockCounter < 1 && nowBlocking) {
+						anim.SetTrigger ("blockBroken");
+						nowBlocking = false;
+				}
 
-		health -= damage;
+		if (nowBlocking && facingRight != hyokkaajanSuunta && blockCounter>0) {
+						gameObject.GetComponentInChildren<VeriLentaa> ().kipinoi ();
+						if (blockCounter==1) {gameObject.GetComponentInChildren<VeriLentaa> ().kipinoi ();}
+				} else {
 
-		healthSlider.value = health;
-		valahdys = true;
+				health -= damage;
 
-		var number = Random.Range(10f,20f);
+				healthSlider.value = health;
+				valahdys = true;
 
-		if (health > 0f) {
-			gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
-			ottiOsumaaTimer=0f;
-			ottiOsumaa=true;
-		}
-		
-		else if (!paaPoikki && number < 15f) {
-			anim.SetBool ("chopOffHead", true);
-			gameObject.GetComponentInChildren<MestausScript> ().katkaise ();
-			paaPoikki = true;
-			jalkaPoikki=true;
-		}
-		
-		else if (!jalkaPoikki && number >= 15f) {
-			anim.SetBool ("damageLeg", true);
-			//gameObject.GetComponentInChildren<MestausScript> ().katkaise ();
-			gameObject.GetComponentInChildren<RampautusScript> ().katkaise ();
-			jalkaPoikki=true;
-			paaPoikki = true;
+				var number = Random.Range (10f, 20f);
+
+				if (health > 0f) {
+						gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
+						ottiOsumaaTimer = 0f;
+						ottiOsumaa = true;
+				} else if (!paaPoikki && number < 15f) {
+						anim.SetBool ("chopOffHead", true);
+						gameObject.GetComponentInChildren<MestausScript> ().katkaise ();
+						paaPoikki = true;
+						jalkaPoikki = true;
+				} else if (!jalkaPoikki && number >= 15f) {
+						anim.SetBool ("damageLeg", true);
+						//gameObject.GetComponentInChildren<MestausScript> ().katkaise ();
+						gameObject.GetComponentInChildren<RampautusScript> ().katkaise ();
+						jalkaPoikki = true;
+						paaPoikki = true;
+				}
 		}
 	}
 
@@ -196,6 +233,8 @@ public class PlayerControllerScript : MonoBehaviour {
 	void DecapitateEnemy(GameObject enemy) {
 		enemy.SendMessage("Decapitate");
 	}
+
+
 
 	bool IsOnSameVerticalLevelWithEnemy(GameObject enemy) {
 		float yDifference = (enemy.transform.position.y - this.transform.position.y);
@@ -224,4 +263,8 @@ public class PlayerControllerScript : MonoBehaviour {
 		return true;
 		}
 
+	void blockIsTrue() {
+				nowBlocking = true;
+				blockCounter = Random.Range (3, 6);
+		}
 }

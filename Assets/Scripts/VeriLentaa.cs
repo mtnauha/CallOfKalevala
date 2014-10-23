@@ -5,6 +5,7 @@ public class VeriLentaa : MonoBehaviour {
 
 	public Transform VerisuihkuPerus;
 	public Transform Veriroiske;
+	public Transform Sparks;
 
 
 	// Use this for initialization
@@ -19,6 +20,22 @@ public class VeriLentaa : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void kipinoi()
+	{
+		
+				//var headTransform = Instantiate(Head, Vector3.zero, Quaternion.identity) as GameObject;
+		
+		
+				// Create a new shot
+				var spark = Instantiate (Sparks) as Transform;
+				var xMod = Random.Range (-0.05f, 0.05f);
+				var yMod = Random.Range (-0.05f, 0.05f);
+				spark.position = transform.position;
+		
+		spark.position = new Vector3(spark.position.x+xMod, spark.position.y+yMod, spark.position.z);
+
+		}
 	
 	public void suihkauta()
 	{

@@ -3,7 +3,7 @@
 public class EnemyManager : MonoBehaviour
 {
 	public GameObject player;
-	public GameObject enemy;
+	public Transform Enemy;
 	public float spawnTime = 3f;
 	public Transform[] spawnPoints;
 	
@@ -24,8 +24,14 @@ public class EnemyManager : MonoBehaviour
 		
 			int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 		
-			Instantiate (enemy, spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation);
+			Instantiate (Enemy, spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation);
 			Debug.Log ("Instantiated an enemy at", spawnPoints [spawnPointIndex]);
+
+		//	var newenemy = Instantiate (Enemy) as Transform;
+		//	var xMod = Random.Range (-5.5f, 5.5f);
+		//	newenemy.position = transform.position;
+		//	newenemy.position = new Vector3 (0f+xMod, 0f, 0f);
+
 		}
 	}
 

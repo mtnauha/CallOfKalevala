@@ -19,8 +19,9 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	public Transform Enemy;
 
+
 	Animator anim;
-	GameObject hero;
+	public GameObject hero;
 
 	//Stats
 	public int health;
@@ -28,7 +29,7 @@ public class EnemyControllerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		hero = GameObject.FindWithTag ("Hero");
+		//hero = GameObject.FindGameObjectWithTag ("Hero");
 		health = 100;
 		attackCooldown = 0;
 		dead = false;
@@ -185,6 +186,7 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	void inflictDamageToPlayer(int damage) {
 		if (IsOnSameVerticalLevelWithHero() && enemyWithinAttackRange) {
+			hero.SendMessage("ApplyDamage", facingRight);
 			hero.SendMessage("ApplyDamage", damage);
 		}
 	}
