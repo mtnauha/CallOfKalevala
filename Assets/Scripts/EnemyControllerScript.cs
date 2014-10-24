@@ -14,6 +14,7 @@ public class EnemyControllerScript : MonoBehaviour {
 	private float moveVertical = 0;
 	private float attackCooldown;
 	private bool headChopped;
+	private bool legsChopped;
 	private bool armChopped;
 	private bool oneToBeSure;
 
@@ -34,6 +35,7 @@ public class EnemyControllerScript : MonoBehaviour {
 		attackCooldown = 0;
 		dead = false;
 		headChopped = false;
+		legsChopped = false;
 		armChopped = false;
 		oneToBeSure = false;
 	}
@@ -46,8 +48,11 @@ public class EnemyControllerScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		float oldX = this.transform.position.x;
+
 		moveHorizontal = 0;
 		moveVertical = 0;
+
 
 		if (!dead) {
 			attackCooldown -= Time.deltaTime;
@@ -124,6 +129,11 @@ public class EnemyControllerScript : MonoBehaviour {
 			transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.y);
 		}
 
+		if (oldX > this.transform.position.x && facingRight) {
+						Flip ();
+				} else if (oldX < this.transform.position.x && !facingRight) {
+			Flip ();
+				}
 	}
 
 	void Flip() {
@@ -135,8 +145,19 @@ public class EnemyControllerScript : MonoBehaviour {
 				}
 	}
 
+	void Legcapitate() {
+		if (!headChopped && !legsChopped && health>0) {
+			health = -50;
+			
+			anim.SetTrigger ("DieLegs");
+			legsChopped = true;
+			gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrcJalat ();
+			SetDead ();
+		}
+	}
+
 	void Decapitate() {
-		if (!headChopped) {
+		if (!headChopped && !legsChopped && health>0) {
 						health = -50;
 				
 						anim.SetTrigger ("HeadChop");
@@ -147,11 +168,11 @@ public class EnemyControllerScript : MonoBehaviour {
 		}
 
 	void ApplyDamage(int damage) {
-		if (!dead) {
+		if (!dead && health>0) {
 			health -= damage;
 
 			if (health <= 0) {
-				SetDead ();
+
 
 				var number = Random.Range (10f, 40f);
 				if (number < 15f && !headChopped && !armChopped) {
@@ -174,7 +195,7 @@ public class EnemyControllerScript : MonoBehaviour {
 					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
 					anim.SetTrigger ("Die");
 				}
-
+				SetDead ();
 			} else {
 				anim.SetTrigger ("Damage");
 				if (health > 0f) {
@@ -228,7 +249,9 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	void SetDead() {
 		dead = true;
-		anim.SetBool ("Dead", true);
+		//if (!headChopped && !armChopped && !legsChopped) {
+						anim.SetBool ("Dead", true);
+				//}
 		rigidbody2D.collisionDetectionMode = CollisionDetectionMode2D.None;
 		collider2D.enabled = false;
 		anim.SetFloat ("Speed", 0);
@@ -243,4 +266,8 @@ public class EnemyControllerScript : MonoBehaviour {
 		newenemy.position = new Vector3 (0f+xMod, 0f, 0f);
 		*/
 	}
+
+	public int getHealth() {
+				return health;
+		}
 }

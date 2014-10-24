@@ -6,6 +6,7 @@ public class MestausScript : MonoBehaviour
 	public Transform Irtopaa;
 	public Transform IrtopaaOrc;
 	public Transform IrtokasiOrc;
+	public Transform IrtoJalkaOrc;
 	public Transform VerisuihkuPerus;
 	public Transform Veriroiske;
 	float bloodTimer = 0f;
@@ -16,6 +17,7 @@ public class MestausScript : MonoBehaviour
 	bool lisaSuihkausE = false;
 	bool sankarinPaa = false;
 	bool orcinKasi = false;
+	bool orcinJalat = false;
 	bool orcinPaa = false;
 	
 	/// <summary>
@@ -77,13 +79,7 @@ public class MestausScript : MonoBehaviour
 
 	}
 	
-	//--------------------------------
-	// 3 - Shooting from another script
-	//--------------------------------
-	
-	/// <summary>
-	/// Create a new projectile if possible
-	/// </summary>
+
 	public void katkaise()
 	{
 		
@@ -141,6 +137,50 @@ public class MestausScript : MonoBehaviour
 		
 	}
 
+	public void katkaiseOrcJalat()
+	{
+		
+
+		orcinJalat = true;
+
+		var jalkaTransform = Instantiate(IrtoJalkaOrc) as Transform;
+		jalkaTransform.position = transform.position;
+		jalkaTransform.position = new Vector3(jalkaTransform.position.x-0.3f, jalkaTransform.position.y-1.3f,jalkaTransform.position.z);
+
+		var v1Mod = Random.Range (-50f, 50f);
+		var v2Mod = Random.Range (-50f, 50f);
+		
+		Vector2 v = new Vector2(v1Mod,v2Mod);
+		//Vector2 v = new Vector2(150f,260f);
+		
+		
+		//jalkaTransform.rigidbody2D.AddRelativeForce (v);
+
+		jalkaTransform.renderer.sortingOrder = 30;
+
+
+		 jalkaTransform = Instantiate(IrtoJalkaOrc) as Transform;
+		jalkaTransform.position = transform.position;
+		jalkaTransform.position = new Vector3(jalkaTransform.position.x+0.3f, jalkaTransform.position.y-1.5f,jalkaTransform.position.z);
+		
+		 v1Mod = Random.Range (-50f, 50f);
+		 v2Mod = Random.Range (-50f, 50f);
+		
+		 v = new Vector2(v1Mod,v2Mod);
+		//Vector2 v = new Vector2(150f,260f);
+		
+		
+		//jalkaTransform.rigidbody2D.AddRelativeForce (v);
+		
+		jalkaTransform.renderer.sortingOrder = 30;
+
+		suihkauta ();
+		
+	}
+
+
+
+
 
 	public void suihkauta()
 	{
@@ -188,20 +228,22 @@ public class MestausScript : MonoBehaviour
 						roiske.renderer.sortingLayerName = "BloodInFront";
 				}
 
-		roiske = Instantiate(Veriroiske) as Transform;
-		roiske.position = transform.position;
-		roiske.position = new Vector3(suihku.position.x+xMod, suihku.position.y+yMod, suihku.position.z);
-		roiske.transform.localScale -= new Vector3(0.5f,0.5f,0.5f);
-		roiske.renderer.sortingLayerName = "BloodInFront";
-
+		if (montako > 2.0f) {
+						roiske = Instantiate (Veriroiske) as Transform;
+						roiske.position = transform.position;
+						roiske.position = new Vector3 (suihku.position.x + xMod, suihku.position.y + yMod, suihku.position.z);
+						roiske.transform.localScale -= new Vector3 (0.5f, 0.5f, 0.5f);
+						roiske.renderer.sortingLayerName = "BloodInFront";
+				}
 		//WaitForSeconds (0.3f);
 
-		
-		roiske = Instantiate(Veriroiske) as Transform;
-		roiske.position = transform.position;
-		roiske.position = new Vector3(suihku.position.x+xMod, suihku.position.y+yMod, suihku.position.z);
-		roiske.transform.localScale -= new Vector3(0.5f,0.5f,0.5f);
-		roiske.renderer.sortingLayerName = "BloodInFront";
+		if (montako > 1.0f) {
+						roiske = Instantiate (Veriroiske) as Transform;
+						roiske.position = transform.position;
+						roiske.position = new Vector3 (suihku.position.x + xMod, suihku.position.y + yMod, suihku.position.z);
+						roiske.transform.localScale -= new Vector3 (0.5f, 0.5f, 0.5f);
+						roiske.renderer.sortingLayerName = "BloodInFront";
+				}
 	}
 
 

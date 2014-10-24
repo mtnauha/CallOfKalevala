@@ -74,7 +74,11 @@ public class PomppivaPaa : MonoBehaviour {
 								viiruTimer = 0.0f;
 						//}
 				}
-	
+		if (dropTimer>12f && gameObject.name.Contains("(Clone)")) {
+		    gameObject.rigidbody2D.velocity = Vector3.zero;
+		    gameObject.rigidbody2D.isKinematic = true;
+		    gameObject.collider2D.enabled = false;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {

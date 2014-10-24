@@ -63,7 +63,7 @@ GameObject:
   - 4: {fileID: 400006}
   - 114: {fileID: 11400006}
   m_Layer: 10
-  m_Name: HeadLocation
+  m_Name: LegLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,6 +100,22 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!1 &100012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400012}
+  - 114: {fileID: 11400008}
+  m_Layer: 10
+  m_Name: HeadLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &400000
 Transform:
@@ -125,9 +141,10 @@ Transform:
   m_Children:
   - {fileID: 400000}
   - {fileID: 400004}
-  - {fileID: 400006}
+  - {fileID: 400012}
   - {fileID: 400008}
   - {fileID: 400010}
+  - {fileID: 400006}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400004
@@ -149,11 +166,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0607430004, y: 1.83790004, z: -1}
+  m_LocalPosition: {x: -.26699999, y: .433710009, z: -1}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
-  m_RootOrder: 2
+  m_RootOrder: 5
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -178,6 +195,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400002}
   m_RootOrder: 4
+--- !u!4 &400012
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0607430004, y: 1.83790004, z: -1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
+  m_RootOrder: 2
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -235,8 +264,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 20.5534706, y: 12.7559223}
-  m_Center: {x: -10.7544155, y: .417299271}
+  m_Size: {x: 1.88969421, y: 12.7559223}
+  m_Center: {x: -1.42253065, y: .417299271}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -266,6 +295,7 @@ MonoBehaviour:
   Irtopaa: {fileID: 0}
   IrtopaaOrc: {fileID: 0}
   IrtokasiOrc: {fileID: 0}
+  IrtoJalkaOrc: {fileID: 0}
   VerisuihkuPerus: {fileID: 0}
   Veriroiske: {fileID: 0}
   shootingRate: .25
@@ -314,6 +344,25 @@ MonoBehaviour:
   Irtopaa: {fileID: 0}
   IrtopaaOrc: {fileID: 0}
   IrtokasiOrc: {fileID: 0}
+  IrtoJalkaOrc: {fileID: 0}
+  VerisuihkuPerus: {fileID: 0}
+  Veriroiske: {fileID: 0}
+  shootingRate: .25
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44903d5ed7f968149b79798c1bb6ac63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Irtopaa: {fileID: 0}
+  IrtopaaOrc: {fileID: 0}
+  IrtokasiOrc: {fileID: 0}
+  IrtoJalkaOrc: {fileID: 0}
   VerisuihkuPerus: {fileID: 0}
   Veriroiske: {fileID: 0}
   shootingRate: .25
