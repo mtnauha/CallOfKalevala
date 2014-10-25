@@ -34,10 +34,38 @@ public class PlayerControllerScript : MonoBehaviour {
 	//Stats
 	public int health;
 
+	//sound
+	public AudioSource[] sounds;
+	public AudioSource pain1;
+	public AudioSource pain2;
+	public AudioSource pain3;
+	public AudioSource pain4;
+
+	public AudioSource death;
+	public AudioSource hit;
+	public AudioSource swing;
+	public AudioSource clang;
+
+	public AudioSource squirt;
+
+
 	// Use this for initialization
 	void Start () {
 
 		anim = GetComponent<Animator> ();
+		sounds = GetComponents<AudioSource>();
+		pain1 = sounds[0];
+		pain2 = sounds[1];
+		pain3 = sounds[2];
+		pain4 = sounds[3];
+
+		death = sounds[4];
+		hit = sounds[5];
+		swing = sounds[6];
+		clang = sounds[7];
+
+		squirt = sounds[8];
+
 
 	}
 
@@ -101,6 +129,7 @@ public class PlayerControllerScript : MonoBehaviour {
 						}
 
 						if (legattacking && attackTimer > 0.30f) {
+							swing.Play ();
 							foreach (GameObject enemy in enemiesWithinAttackRange) {
 								if (IsOnSameVerticalLevelWithEnemy (enemy)) {
 								
@@ -117,6 +146,7 @@ public class PlayerControllerScript : MonoBehaviour {
 						}	
 
 						if ((highAttacking && attackTimer > 0.25f) || (attacking && attackTimer > 0.20f)) {
+								swing.Play ();
 								foreach (GameObject enemy in enemiesWithinAttackRange) {
 										
 									if (IsOnSameVerticalLevelWithEnemy (enemy) && attacking) {
@@ -132,6 +162,7 @@ public class PlayerControllerScript : MonoBehaviour {
 						}
 
 						if (powerattacking && attackTimer > 0.50f) {
+								swing.Play ();
 								foreach (GameObject enemy in enemiesWithinAttackRange) {
 					if (IsOnExactVerticalLevelWithEnemy (enemy) && !IsTooCloseToEnemy(enemy)) {
 												DecapitateEnemy (enemy);
@@ -160,6 +191,10 @@ public class PlayerControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		swing.pitch = Random.Range(0.9f, 1.1f); swing.volume = Random.Range(0.75f, 1.0f);
+		hit.pitch = Random.Range(0.8f, 1.2f); hit.volume = Random.Range(0.75f, 1.0f);
+		clang.pitch = Random.Range(0.9f, 1.1f); clang.volume = Random.Range(0.45f, 0.6f);
+
 		if (health<=0) {
 			gameObject.rigidbody2D.velocity = Vector3.zero;
 			gameObject.rigidbody2D.isKinematic = true;
@@ -278,19 +313,28 @@ public class PlayerControllerScript : MonoBehaviour {
 						if (blockCounter < 1 && nowBlocking) {
 								anim.SetTrigger ("blockBroken");
 								nowBlocking = false;
+				hit.Play ();
 						}
 
 						if (nowBlocking && facingRight != hyokkaajanSuunta && blockCounter > 0) {
+
 								gameObject.GetComponentInChildren<VeriLentaa> ().kipinoi ();
 								if (blockCounter == 1) {
 										gameObject.GetComponentInChildren<VeriLentaa> ().kipinoi ();
+					clang.pitch=1f;clang.volume=1f; 
 								}
+					
+								clang.Play ();
 						} else {
 
 								health -= damage;
 
 								healthSlider.value = health;
 								valahdys = true;
+								hit.Play();
+								
+
+
 
 								var number = Random.Range (5f, 50f);
 
@@ -298,12 +342,24 @@ public class PlayerControllerScript : MonoBehaviour {
 										gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
 										ottiOsumaaTimer = 0f;
 										ottiOsumaa = true;
+								
+									
+										var pain = Random.Range (0f, 50f);
+										
+										if (pain<11f) { pain1.Play();}
+										else if (pain<20f) {pain2.Play();}
+										else if (pain<30f) {pain3.Play();}
+										else {pain4.Play();}
+										
+
 								} else if (!paaPoikki && number < 15f) {
 										anim.SetBool ("chopOffHead", true);
 										gameObject.GetComponentInChildren<MestausScript> ().katkaise ();
 										paaPoikki = true;
 										jalkaPoikki = true;
 										anim.SetFloat ("Speed", 0);
+										squirt.Play ();
+										
 								} else if (!jalkaPoikki && number >= 15f && number <= 24f) {
 										anim.SetBool ("damageLeg", true);
 										//gameObject.GetComponentInChildren<MestausScript> ().katkaise ();
@@ -311,6 +367,7 @@ public class PlayerControllerScript : MonoBehaviour {
 										jalkaPoikki = true;
 										paaPoikki = true;
 										anim.SetFloat ("Speed", 0);
+										squirt.Play ();
 								} else {
 										anim.SetTrigger ("heroFalls");
 										gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
@@ -320,6 +377,7 @@ public class PlayerControllerScript : MonoBehaviour {
 										paaPoikki = true;
 										anim.SetFloat ("Speed", 0);
 								}
+								death.Play ();
 						}
 				}
 	}

@@ -7,10 +7,18 @@ public class VeriLammikonMuotoilija : MonoBehaviour {
 	private float lammikkoTimer=0.0f;
 	private bool ekaTummennus = false;
 	private bool tokaTummennus = false;
+	public AudioSource[] splat;
 	// Use this for initialization
 
 	void Start () {
 		anim = GetComponent<Animator> ();
+		splat = GetComponents<AudioSource>();
+		splat[0].pitch = Random.Range(0.75f, 1.25f); splat[0].volume = Random.Range(0.25f, 0.65f);
+		if (gameObject.name.Contains ("(Clone)")) {
+						splat [0].Play ();
+				}
+
+
 		var number = Random.Range(10f,40f);
 		if (number < 20f) {
 			anim.SetBool ("lammikko1", true);}

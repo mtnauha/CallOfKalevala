@@ -27,6 +27,21 @@ public class EnemyControllerScript : MonoBehaviour {
 	//Stats
 	public int health;
 
+	//sound
+	public AudioSource[] sounds;
+	public AudioSource pain1;
+	public AudioSource pain2;
+	public AudioSource pain3;
+		
+	public AudioSource death;
+	public AudioSource hit;
+	public AudioSource legs;
+	public AudioSource swing;
+
+	public AudioSource squirt;
+	public AudioSource deathhead;
+
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -38,6 +53,19 @@ public class EnemyControllerScript : MonoBehaviour {
 		legsChopped = false;
 		armChopped = false;
 		oneToBeSure = false;
+
+		sounds = GetComponents<AudioSource>();
+		pain1 = sounds[0];
+		pain2 = sounds[1];
+		pain3 = sounds[2];
+
+		death = sounds[3];
+		hit = sounds[4];
+		legs = sounds[5];
+		swing = sounds[6];
+		
+		squirt = sounds[7];
+		deathhead = sounds[8];
 	}
 	
 	// Update is called once per frame
@@ -52,7 +80,9 @@ public class EnemyControllerScript : MonoBehaviour {
 
 		moveHorizontal = 0;
 		moveVertical = 0;
-
+		death.pitch = Random.Range(0.8f, 1.2f); death.volume = Random.Range(0.75f, 1.0f);
+		swing.pitch = Random.Range(0.9f, 1.1f); swing.volume = Random.Range(0.75f, 1.0f);
+		hit.pitch = Random.Range(0.8f, 1.2f); hit.volume = Random.Range(0.75f, 1.0f);
 
 		if (!dead) {
 			attackCooldown -= Time.deltaTime;
@@ -61,6 +91,7 @@ public class EnemyControllerScript : MonoBehaviour {
 				if (attackCooldown <= 0 && !oneToBeSure) {
 					if (!hero.GetComponent<PlayerControllerScript>().isHeroAlive()) {oneToBeSure=true;}
 					anim.SetTrigger ("FastAttack");
+					swing.Play ();
 					attackCooldown = maxFastAttackCooldown;
 				}
 			}
@@ -69,6 +100,7 @@ public class EnemyControllerScript : MonoBehaviour {
 				if (attackCooldown <= 0 && !oneToBeSure) {
 					if (!hero.GetComponent<PlayerControllerScript>().isHeroAlive()) {oneToBeSure=true;}
 					anim.SetTrigger ("Attack");
+					swing.Play ();
 					attackCooldown = maxAttackCooldown;
 				}
 			}
@@ -129,9 +161,9 @@ public class EnemyControllerScript : MonoBehaviour {
 			transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.y);
 		}
 
-		if (oldX > this.transform.position.x && facingRight) {
+		if (oldX > this.transform.position.x && !facingRight) {
 						Flip ();
-				} else if (oldX < this.transform.position.x && !facingRight) {
+				} else if (oldX < this.transform.position.x && facingRight) {
 			Flip ();
 				}
 	}
@@ -148,9 +180,11 @@ public class EnemyControllerScript : MonoBehaviour {
 	void Legcapitate() {
 		if (!headChopped && !legsChopped && health>0) {
 			health = -50;
-			
+			hit.Play ();
 			anim.SetTrigger ("DieLegs");
 			legsChopped = true;
+			death.Play ();
+			legs.Play ();
 			gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrcJalat ();
 			SetDead ();
 		}
@@ -164,41 +198,62 @@ public class EnemyControllerScript : MonoBehaviour {
 						headChopped = true;
 						gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();
 						SetDead ();
+						deathhead.Play ();
+						//hit.Play ();
+						squirt.Play ();
+
 				}
 		}
 
 	void ApplyDamage(int damage) {
 		if (!dead && health>0) {
 			health -= damage;
+			hit.Play ();
 
 			if (health <= 0) {
 
 
 				var number = Random.Range (10f, 40f);
-				if (number < 15f && !headChopped && !armChopped) {
+				if (number < 13f && !headChopped && !armChopped) {
 					anim.SetTrigger ("HeadChop");
 					headChopped = true;
 					gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrc ();
-				} else if (number < 20f && !headChopped && !armChopped) {
+					deathhead.Play ();
+					squirt.Play ();
+
+
+				} else if (number < 18f && !headChopped && !armChopped) {
 					anim.SetTrigger ("ArmChop");
 
 					Vector3 theScale = transform.localScale;
 					theScale.x *= -1;
 					transform.localScale = theScale;
+					//squirt.Play ();
+					death.Play();
 
 					armChopped = true;
 					gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrcKasi ();
-				} else if (number < 30f && !headChopped && !armChopped) {
+				} else if (number < 25f && !headChopped && !armChopped) {
 					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
 					anim.SetTrigger ("DieHalves");
+					//squirt.Play ();
+					death.Play();
 				} else {
 					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
 					anim.SetTrigger ("Die");
+					death.Play();
 				}
 				SetDead ();
 			} else {
 				anim.SetTrigger ("Damage");
 				if (health > 0f) {
+
+					var pain = Random.Range (0f, 31f);
+					
+					if (pain<11f) { pain1.pitch = Random.Range(0.8f, 1.2f); pain1.volume = Random.Range(0.6f, 0.9f); pain1.Play(); }
+					else if (pain<20f) { pain2.pitch = Random.Range(0.8f, 1.2f); pain2.volume = Random.Range(0.6f, 0.9f);pain2.Play();}
+					else { pain3.pitch = Random.Range(0.8f, 1.2f); pain3.volume = Random.Range(0.6f, 0.9f);pain3.Play();}
+
 					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
 				}
 			}

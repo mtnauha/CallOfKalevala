@@ -8,14 +8,30 @@ public class PomppivaPaa : MonoBehaviour {
 	float bloodCounter = 0f;
 	Vector3 startVector;
 	float startY;
+	float klopsTimer = 0f;
 	bool noSplatters;
 
 	public Transform Verilammikko;
 	public Transform Veriviiru;
 
+	public AudioSource[] sounds;
+	public AudioSource decapitate;
+	public AudioSource headhit;
+	public AudioSource squirt;
+
+
 	// Use this for initialization
 	void Start () {
+		sounds = GetComponents<AudioSource>();
+		decapitate = sounds[0];
+		headhit = sounds[1];
+		squirt = sounds[2];
+
+		if (gameObject.name.Contains ("(Clone)")) {
+						decapitate.Play ();
+				}
 		dropTimer = 0f;
+		klopsTimer = 0f;
 		gameObject.collider2D.enabled = true;
 		gameObject.collider2D.isTrigger = true;
 		startVector = transform.position;
@@ -38,9 +54,14 @@ public class PomppivaPaa : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (gameObject.name.Contains("(Clone)")) {
+
+		headhit.pitch = Random.Range(0.8f, 1.2f);// headhit.volume = Random.Range(0.75f, 1.0f);
+		squirt.pitch = Random.Range(0.9f, 1.1f); //squirt.volume = Random.Range(0.75f, 1.0f);
 
 		viiruTimer += Time.deltaTime;
 		dropTimer += Time.deltaTime;
+		klopsTimer += Time.deltaTime;
 		//angle = gameObject.transform.localEulerAngles.z;
 
 		//if (dropTimer > 3.05f) {
@@ -79,6 +100,7 @@ public class PomppivaPaa : MonoBehaviour {
 		    gameObject.rigidbody2D.isKinematic = true;
 		    gameObject.collider2D.enabled = false;
 		}
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
@@ -101,13 +123,14 @@ public class PomppivaPaa : MonoBehaviour {
 		}
 
 	void OnCollisionHit2D(Collider2D col) {
+
 		if (bloodCounter < 10.0f && !noSplatters && viiruTimer>0.05f) {
-			
+
 			if (gameObject.transform.localEulerAngles.z > 285.0f || gameObject.transform.localEulerAngles.z < 75.0f) {
 				//if (gameObject.transform.localEulerAngles.z >= -0.2f && gameObject.transform.localEulerAngles.z <= 0.2f) {
 				var yMod = Random.Range(-0.1f,0.1f);
 				var viiru = Instantiate (Veriviiru) as Transform;
-
+				squirt.Play ();
 				
 				// Assign position
 				viiru.position = transform.position;
@@ -120,6 +143,11 @@ public class PomppivaPaa : MonoBehaviour {
 		}
 
 	void OnCollisionEnter2D(Collision2D col) {
+		if (klopsTimer > 0.25f) {
+						headhit.Play ();
+						klopsTimer=0f;
+						headhit.volume = headhit.volume * 0.70f;
+				}
 		//dropTimer = 0f;
 		//Debug.Log("On collision ajettu");
 		//if (col.gameObject.tag == "maa") {
@@ -136,7 +164,8 @@ public class PomppivaPaa : MonoBehaviour {
 								Debug.Log ("angle: " + gameObject.transform.localEulerAngles.z);
 								var lammikko = Instantiate (Verilammikko) as Transform;
 								bloodCounter += 1.0f;
-	
+								squirt.volume = squirt.volume * 0.80f;
+								squirt.Play ();
 								// Assign position
 								lammikko.position = transform.position;
 								//lammikko.position.y = lammikko.position.y + 3.0f;
