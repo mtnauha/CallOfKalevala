@@ -31,6 +31,19 @@ public class VeriLammikonMuotoilija : MonoBehaviour {
 		lammikkoTimer=0.0f;
 		 ekaTummennus = false;
 		 tokaTummennus = false;
+
+
+	//	if (transform.localPosition.y > 10f) {
+	//		transform.localScale = new Vector3 (0.3f, 0.3f, 0.3f);
+	//	} else if (transform.localPosition.y > 8f) {
+	//		transform.localScale = new Vector3 (0.75f, 0.75f, 0.75f);
+	//	}
+	//	else if (transform.localPosition.y < 6f) {
+	//		transform.localScale = new Vector3 (1.4f, 1.4f, 1.4f);
+	//	} else if (transform.localPosition.y < 4f) {
+	//		transform.localScale = new Vector3 (1.8f, 1.8f, .18f);
+	//	}
+
 	}
 
 	//void FixedUpdate() {

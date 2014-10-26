@@ -89,7 +89,7 @@ public class EnemyControllerScript : MonoBehaviour {
 
 			if (enemyWithinAttackRange && IsOnSameVerticalLevelWithHero() && IsNearHorizontallLevelWithHero()) {
 				if (attackCooldown <= 0 && !oneToBeSure) {
-					if (!hero.GetComponent<PlayerControllerScript>().isHeroAlive()) {oneToBeSure=true;}
+					if (!hero.GetComponent<PlayerControllerScript>().isHeroAlive()) {oneToBeSure=true; hit.PlayDelayed(0.25f);}
 					anim.SetTrigger ("FastAttack");
 					swing.Play ();
 					attackCooldown = maxFastAttackCooldown;
@@ -98,7 +98,7 @@ public class EnemyControllerScript : MonoBehaviour {
 
 			else if (enemyWithinAttackRange && IsOnSameVerticalLevelWithHero()) {
 				if (attackCooldown <= 0 && !oneToBeSure) {
-					if (!hero.GetComponent<PlayerControllerScript>().isHeroAlive()) {oneToBeSure=true;}
+					if (!hero.GetComponent<PlayerControllerScript>().isHeroAlive()) {oneToBeSure=true; hit.PlayDelayed(0.40f);}
 					anim.SetTrigger ("Attack");
 					swing.Play ();
 					attackCooldown = maxAttackCooldown;

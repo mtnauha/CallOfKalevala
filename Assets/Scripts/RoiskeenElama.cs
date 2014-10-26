@@ -11,6 +11,7 @@ public class RoiskeenElama : MonoBehaviour {
 	float edellinenY = 0f;
 	bool takaVeri = false;
 
+
 	float startY = 0f;
 	public Transform Verilammikko;
 
@@ -33,8 +34,9 @@ public class RoiskeenElama : MonoBehaviour {
 
 		gameObject.rigidbody2D.AddRelativeForce (v3);
 		edellinenY = transform.position.y;
+		startY = edellinenY;
 		edellinenX = transform.position.x;
-		dropTimer = 0f;
+		dropTimer = Random.Range (0f, 0.2f);
 		takaVeri = false;
 
 	}
@@ -55,6 +57,13 @@ public class RoiskeenElama : MonoBehaviour {
 		
 		dropTimer += Time.deltaTime;
 
+		if (dropTimer > 0.30) {
+						transform.localScale = new Vector3 (0.44f, 0.77f, 1f);
+				}
+		if (dropTimer > 0.60) {
+			transform.localScale = new Vector3 (0.55f, 0.88f, 1f);
+		}
+
 		if (dropTimer > 0.75f && luotu && !lammikoitu) {
 		//if (transform.position.y < startY-3.25f) {
 			gameObject.rigidbody2D.velocity = Vector3.zero;
@@ -63,9 +72,10 @@ public class RoiskeenElama : MonoBehaviour {
 			gameObject.renderer.enabled = false;
 
 			var veriTransform = Instantiate(Verilammikko) as Transform;
-			
+
 			veriTransform.position = transform.position;
 			veriTransform.renderer.sortingLayerName = "BloodInBack";
+
 			lammikoitu = true;
 		//	Destroy (gameObject);
 		}

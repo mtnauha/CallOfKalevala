@@ -868,11 +868,11 @@ MonoBehaviour:
   pain2: {fileID: 8200016}
   pain3: {fileID: 8200016}
   pain4: {fileID: 8200016}
-  death: {fileID: 0}
-  hit: {fileID: 0}
-  swing: {fileID: 0}
-  clang: {fileID: 0}
-  squirt: {fileID: 0}
+  death: {fileID: 8200016}
+  hit: {fileID: 8200016}
+  swing: {fileID: 8200016}
+  clang: {fileID: 8200016}
+  squirt: {fileID: 8200016}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

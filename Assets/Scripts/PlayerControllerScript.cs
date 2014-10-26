@@ -19,6 +19,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	private float ottiOsumaaTimer = 0f;
 	private float attackTimer=0f;
 	private float cooldown=0f;
+	private float legcooldown=0f;
 
 	public Slider healthSlider;
 	public Image limited;
@@ -30,6 +31,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	Animator anim;
 	bool valahdys = false;
 	private bool hyokkaajanSuunta;
+	private bool wantsToBlock = false;
 
 	//Stats
 	public int health;
@@ -71,16 +73,23 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	void Update () {
 		if (health > 0) {
+			legcooldown -=Time.deltaTime;
+			if (legcooldown<0.0f) { anim.SetBool ("moreLegAttack", false);}
+
 			if (attacking || powerattacking || legattacking || highAttacking) {
 								attackTimer += Time.deltaTime;
+								if (Input.GetKeyDown ("f") && (attackTimer>0.19f)) 
+										{wantsToBlock=true;}
 						} else {
 				cooldown -=Time.deltaTime;
+
 			}
 
-			if (Input.GetKeyDown ("f") && (attackTimer<=0.19f ||  (!powerattacking && !attacking && !legattacking))) {
+			if ((wantsToBlock || Input.GetKeyDown ("f")) && (attackTimer<=0.19f ||  (!powerattacking && !attacking && !legattacking))) {
 				powerattacking=false;
 				attacking=false;
 				legattacking=false;
+				wantsToBlock=false;
 				attackTimer=0.0f;
 								if (!nowBlocking) {
 										anim.SetTrigger ("startBlock");
@@ -88,9 +97,11 @@ public class PlayerControllerScript : MonoBehaviour {
 								}
 
 						}
-						if (Input.GetKeyUp ("f") && nowBlocking) {
+			if ((Input.GetKeyUp ("f") && nowBlocking) || (nowBlocking && (Input.GetKeyDown ("q") || Input.GetKeyDown ("space") || Input.GetKeyDown ("e") || Input.GetKeyDown ("r")))) {
+							 	
 								anim.SetTrigger ("startIdle");
 								nowBlocking = false;
+								
 						}
 
 						if (Input.GetKeyDown ("left ctrl") && Input.GetAxis("Vertical")<0 && !powerattacking && !attacking && !legattacking) {
@@ -99,8 +110,12 @@ public class PlayerControllerScript : MonoBehaviour {
 						}
 
 						if (Input.GetKeyDown ("q") && !powerattacking && !attacking && !legattacking) {
-							anim.SetTrigger ("LegAttack");
-							legattacking = true;
+							if (legcooldown<0f) {
+					anim.SetTrigger ("LegAttack"); legcooldown=0.6f; anim.SetBool ("moreLegAttack", false);}
+								else if (legcooldown>0f) {
+					anim.SetBool ("moreLegAttack", true); legcooldown=0.6f;
+									}
+								legattacking = true;
 						}
 
 						if (Input.GetKeyDown ("left ctrl") && Input.GetAxis("Vertical")>0 && !powerattacking && !attacking && !legattacking && cooldown <0) {
@@ -117,7 +132,7 @@ public class PlayerControllerScript : MonoBehaviour {
 						if (Input.GetKeyDown ("e") && !attacking && !powerattacking && !legattacking	&& cooldown <0) {
 								anim.SetTrigger ("highAttack");
 							highAttacking = true;
-							cooldown =0.33f;
+							cooldown =0.2f;
 
 								}
 
@@ -196,6 +211,7 @@ public class PlayerControllerScript : MonoBehaviour {
 		clang.pitch = Random.Range(0.9f, 1.1f); clang.volume = Random.Range(0.45f, 0.6f);
 
 		if (health<=0) {
+			anim.SetBool ("herodead", true);
 			gameObject.rigidbody2D.velocity = Vector3.zero;
 			gameObject.rigidbody2D.isKinematic = true;
 			gameObject.collider2D.enabled = false;
@@ -377,7 +393,8 @@ public class PlayerControllerScript : MonoBehaviour {
 										paaPoikki = true;
 										anim.SetFloat ("Speed", 0);
 								}
-								death.Play ();
+								
+								if (health<1) {death.Play ();}
 						}
 				}
 	}
