@@ -18,6 +18,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	private bool legattacking = false;
 	private float ottiOsumaaTimer = 0f;
 	private float attackTimer=0f;
+	private float gameoverTimer=0f;
 	private float cooldown=0f;
 	private float legcooldown=0f;
 
@@ -50,6 +51,8 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	public AudioSource squirt;
 
+	public float gameOverTimer;
+	public GameObject mainmenu;
 
 	// Use this for initialization
 	void Start () {
@@ -67,11 +70,22 @@ public class PlayerControllerScript : MonoBehaviour {
 		clang = sounds[7];
 
 		squirt = sounds[8];
-
-
+		gameOverTimer = 0f;
+		//mainmenu = GameObject.FindGameObjectWithTag ("MenuManager");
 	}
 
 	void Update () {
+		if (health < 0) {
+						gameoverTimer += Time.deltaTime;
+				}
+		if (gameoverTimer > 5f)  {
+						
+
+			//mainmenu.ChangeToScene("MainMenu");
+			Application.LoadLevel("MainMenu");
+
+				}
+
 		if (health > 0) {
 			legcooldown -=Time.deltaTime;
 			if (legcooldown<0.0f) { anim.SetBool ("moreLegAttack", false);}

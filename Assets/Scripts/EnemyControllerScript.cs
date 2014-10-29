@@ -45,7 +45,7 @@ public class EnemyControllerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
-		//hero = GameObject.FindGameObjectWithTag ("Hero");
+		hero = GameObject.FindGameObjectWithTag ("Hero");
 		health = 100;
 		attackCooldown = 0;
 		dead = false;

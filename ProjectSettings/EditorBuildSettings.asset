@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
     path: Assets/Scenes/Saimaa.unity
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
