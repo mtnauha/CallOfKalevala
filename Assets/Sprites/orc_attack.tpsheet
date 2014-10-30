@@ -1,0 +1,16 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: orc_attack.png (1368 x 1328)
+# $TexturePacker:SmartUpdate:1ba7ff6e3a192a0f3ebaf5dec69172dc:18abd82cbf10e09cca83fb005fae848b:bfd2487977ef464d32857fea53be529e$
+#
+
+orc_att_1;2;886;680;440;0.5;0
+orc_att_2;684;886;680;440;0.5;0
+orc_att_3;2;444;680;440;0.5;0
+orc_att_4;2;2;680;440;0.5;0
+orc_att_5;684;444;680;440;0.5;0
+orc_att_6;684;2;680;440;0.5;0

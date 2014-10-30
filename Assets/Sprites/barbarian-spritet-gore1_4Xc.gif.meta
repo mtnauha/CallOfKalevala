@@ -1,0 +1,114 @@
+fileFormatVersion: 2
+guid: 452fbb6954d40b24d883924237202f47
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: barbarian-spritet-gore1_4Xc
+    21300002: barbarian-spritet-gore1_4Xc_0
+    21300004: barbarian-spritet-gore1_4Xc_1
+    21300006: barbarian-spritet-gore1_4Xc_2
+    21300008: barbarian-spritet-gore1_4Xc_3
+    21300010: barbarian-spritet-gore1_4Xc_4
+    21300012: barbarian-spritet-gore1_4Xc_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 2
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: barbarian-spritet-gore1_4Xc_0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3
+        width: 130
+        height: 250
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-gore1_4Xc_1
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 78
+        width: 6
+        height: 7
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-gore1_4Xc_2
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 19
+        width: 206
+        height: 154
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-gore1_4Xc_3
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 15
+        width: 259
+        height: 86
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-gore1_4Xc_4
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 13
+        width: 208
+        height: 217
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: barbarian-spritet-gore1_4Xc_5
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 7
+        width: 154
+        height: 218
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

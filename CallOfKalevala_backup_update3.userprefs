@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyControllerScript.cs">
+    <Files>
+      <File FileName="..\CallOfKalevala\Assets\Scripts\EnemyControllerScript.cs" Line="119" Column="1" />
+      <File FileName="..\CallOfKalevala\Assets\Scripts\PlayerControllerScript.cs" Line="46" Column="3" />
+      <File FileName="Assets\Scripts\EnemyControllerScript.cs" Line="11" Column="20" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
