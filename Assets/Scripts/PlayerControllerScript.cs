@@ -16,6 +16,9 @@ public class PlayerControllerScript : MonoBehaviour {
 	private bool highAttacking = false;
 	private bool powerattacking = false;
 	private bool legattacking = false;
+
+	private bool finishingAttack = false;
+
 	private float ottiOsumaaTimer = 0f;
 	private float attackTimer=0f;
 	private float cooldown=0f;
@@ -28,6 +31,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	public float flashSpeed = 5f;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.8f);
 	bool nowBlocking = false;
+	bool blockStarted = false;
 	int blockCounter = 0;
 
 	Animator anim;
@@ -81,40 +85,65 @@ public class PlayerControllerScript : MonoBehaviour {
 			legcooldown -=Time.deltaTime;
 			if (legcooldown<0.0f) { anim.SetBool ("moreLegAttack", false);}
 
-			if (attacking || powerattacking || legattacking || highAttacking) {
+			if (Input.GetKey ("f"))  
+			{wantsToBlock=true;} else {
+				wantsToBlock=false;
+				if (nowBlocking) {
+					anim.SetTrigger ("startIdle");
+					nowBlocking = false;
+					blockStarted = false;
+				}
+			}
+
+			if (finishingAttack || attacking || powerattacking || legattacking || highAttacking) {
 								attackTimer += Time.deltaTime;
-								if (Input.GetKeyDown ("f") && (attackTimer>0.19f)) 
-										{wantsToBlock=true;}
+								//if (Input.GetKey ("f") && (attackTimer>0.19f)) 
+								//		{wantsToBlock=true;}
 						} else {
 				cooldown -=Time.deltaTime;
 
 			}
 
-			if ((wantsToBlock || Input.GetKeyDown ("f")) && (attackTimer<=0.19f ||  (!powerattacking && !attacking && !legattacking))) {
+			if   (!finishingAttack && !highAttacking && !powerattacking && !attacking && !legattacking) {
 				powerattacking=false;
 				attacking=false;
 				legattacking=false;
-				wantsToBlock=false;
+				highAttacking=false;
+				//wantsToBlock=false;
 				attackTimer=0.0f;
-								if (!nowBlocking) {
+			}
+
+			if (!finishingAttack && !nowBlocking && wantsToBlock && attackTimer<=0.19f) {
+			    	attackTimer=0.0f;
+				powerattacking=false;
+				attacking=false;
+				legattacking=false;
+				highAttacking=false;
+				if (!finishingAttack && !nowBlocking && !blockStarted) {
 										anim.SetTrigger ("startBlock");
+					powerattacking=false;
+					attacking=false;
+					legattacking=false;
+					highAttacking=false;
+					blockStarted=true;
+
 								
 								}
 
 						}
-			if ((Input.GetKeyUp ("f") && nowBlocking) || (nowBlocking && (Input.GetKeyDown ("q") || Input.GetKeyDown ("space") || Input.GetKeyDown ("e") || Input.GetKeyDown ("r")))) {
+		//	if ((Input.GetKeyUp ("f") && nowBlocking) || (nowBlocking && (Input.GetKeyDown ("q") || Input.GetKeyDown ("space") || Input.GetKeyDown ("e") || Input.GetKeyDown ("r")))) {
 							 	
-								anim.SetTrigger ("startIdle");
-								nowBlocking = false;
+		//						anim.SetTrigger ("startIdle");
+		//						nowBlocking = false;
 								
-						}
+		//				}
 
-						if (Input.GetKeyDown ("left ctrl") && Input.GetAxis("Vertical")<0 && !powerattacking && !attacking && !legattacking) {
+			if (Input.GetKeyDown ("left ctrl") && Input.GetAxis("Vertical")<0 && !finishingAttack && !highAttacking && !powerattacking && !attacking && !legattacking) {
 								anim.SetTrigger ("LegAttack");
 								legattacking = true;
 						}
 
-						if (Input.GetKeyDown ("q") && !powerattacking && !attacking && !legattacking) {
+			if (Input.GetKeyDown ("q") && !finishingAttack && !powerattacking && !attacking && !legattacking && !highAttacking) {
 							if (legcooldown<0f) {
 					anim.SetTrigger ("LegAttack"); legcooldown=0.6f; anim.SetBool ("moreLegAttack", false);}
 								else if (legcooldown>0f) {
@@ -123,32 +152,32 @@ public class PlayerControllerScript : MonoBehaviour {
 								legattacking = true;
 						}
 
-						if (Input.GetKeyDown ("left ctrl") && Input.GetAxis("Vertical")>0 && !powerattacking && !attacking && !legattacking && cooldown <0) {
+			if (Input.GetKeyDown ("left ctrl") && Input.GetAxis("Vertical")>0 && !finishingAttack && !highAttacking && !powerattacking && !attacking && !legattacking && cooldown <0) {
 								anim.SetTrigger ("PowerAttack");
 								powerattacking = true;
 						}
 
 						
-						if (Input.GetKeyDown ("space") && !powerattacking && !attacking && !legattacking) {
+			if (Input.GetKeyDown ("space") && !finishingAttack && !highAttacking && !powerattacking && !attacking && !legattacking) {
 								anim.SetTrigger ("Attack");
 								attacking = true;
 						}
 
-						if (Input.GetKeyDown ("e") && !attacking && !powerattacking && !legattacking	&& cooldown <0) {
+			if (Input.GetKeyDown ("e") && !finishingAttack && !highAttacking && !attacking && !powerattacking && !legattacking && cooldown <0) {
 								anim.SetTrigger ("highAttack");
 							highAttacking = true;
 							cooldown =0.2f;
 
 								}
 
-						if (Input.GetKeyDown ("r") && !attacking && !powerattacking && !legattacking && cooldown <0) {
+			if (Input.GetKeyDown ("r") && !finishingAttack && !highAttacking && !attacking && !powerattacking && !legattacking && cooldown <0) {
 								anim.SetTrigger ("PowerAttack");
 								powerattacking = true;
 								cooldown =0.5f;
 								
 						}
 
-						if (legattacking && attackTimer > 0.30f) {
+			if (!nowBlocking && !finishingAttack && legattacking && attackTimer > 0.30f) {
 							swing.Play ();
 							foreach (GameObject enemy in enemiesWithinAttackRange) {
 								if (IsOnSameVerticalLevelWithEnemy (enemy)) {
@@ -162,26 +191,28 @@ public class PlayerControllerScript : MonoBehaviour {
 								}
 							}
 								legattacking = false;
-								attackTimer = 0.0f;
+								attackTimer = 0.85f;
+								finishingAttack = true;
 						}	
 
-						if ((highAttacking && attackTimer > 0.25f) || (attacking && attackTimer > 0.20f)) {
+			if (!nowBlocking && !finishingAttack && ((highAttacking && attackTimer > 0.25f) || (attacking && attackTimer > 0.20f))) {
 								swing.Play ();
 								foreach (GameObject enemy in enemiesWithinAttackRange) {
 										
 									if (IsOnSameVerticalLevelWithEnemy (enemy) && attacking) {
 												InflictDamageToEnemy (enemy, 20);
 										}
-								if (IsOnSameVerticalLevelWithEnemy (enemy) && highAttacking && !IsTooCloseToEnemy(enemy)) {
+									if (IsOnSameVerticalLevelWithEnemy (enemy) && highAttacking && !IsTooCloseToEnemy(enemy)) {
 											InflictDamageToEnemy (enemy, 20);
 										}
 								}
 								attacking = false;
 								highAttacking = false;
-								attackTimer = 0.0f;
+								finishingAttack = true;
+								attackTimer = 0.9f;
 						}
 
-						if (powerattacking && attackTimer > 0.50f) {
+			if (!nowBlocking && !finishingAttack && powerattacking && attackTimer > 0.50f) {
 								swing.Play ();
 								foreach (GameObject enemy in enemiesWithinAttackRange) {
 					if (IsOnExactVerticalLevelWithEnemy (enemy) && !IsTooCloseToEnemy(enemy)) {
@@ -197,8 +228,14 @@ public class PlayerControllerScript : MonoBehaviour {
 										}
 								}
 								powerattacking = false;
-								attackTimer = 0.0f;
+								finishingAttack = true;
+								attackTimer = 0.75f;
 						}
+
+			if (finishingAttack && attackTimer > 1.0f) {
+				finishingAttack=false;
+				attackTimer=0f;
+			}
 
 						if (valahdys) {
 								limited.color = flashColour;
@@ -244,7 +281,7 @@ public class PlayerControllerScript : MonoBehaviour {
 								} else {
 								moveHorizontal = -1.83f;
 								moveVertical = 0.0f;
-				}
+								}
 					
 						}
 
@@ -294,6 +331,13 @@ public class PlayerControllerScript : MonoBehaviour {
 
 						transform.position = new Vector3 (transform.position.x, transform.position.y, transform.position.y);
 				}
+
+		if (health > 0 && victory) {
+			gameObject.rigidbody2D.velocity = Vector3.zero;
+			gameObject.rigidbody2D.isKinematic = true;
+			gameObject.collider2D.enabled = false;
+
+				}
 	}
 
 	void Flip() {
@@ -335,6 +379,8 @@ public class PlayerControllerScript : MonoBehaviour {
 						if (blockCounter < 1 && nowBlocking) {
 								anim.SetTrigger ("blockBroken");
 								nowBlocking = false;
+								wantsToBlock =false;
+								blockStarted= false;
 				hit.Play ();
 						}
 
@@ -430,7 +476,7 @@ public class PlayerControllerScript : MonoBehaviour {
 	bool IsTooCloseToEnemy (GameObject enemy) {
 		float xDifference = (enemy.transform.position.x - this.transform.position.x);
 		
-		if ((Mathf.Abs(xDifference) < 1.0f)) {
+		if ((Mathf.Abs(xDifference) < 0.85f)) {
 			return true;
 		} else {
 			return false;
@@ -466,13 +512,13 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	void blockIsTrue() {
 		nowBlocking = true;
-		blockCounter = Random.Range (3, 6);
+		blockCounter = Random.Range (4, 7);
 	}
 
 	public void IncreaseKillCount() {
 		this.killCount++;
 
-		if (this.killCount == 10) {
+		if (this.killCount >= 10) {
 			anim.SetTrigger ("victory");
 			this.victory = true;
 		}

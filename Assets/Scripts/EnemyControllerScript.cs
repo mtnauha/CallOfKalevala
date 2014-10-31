@@ -219,7 +219,7 @@ public class EnemyControllerScript : MonoBehaviour {
 					squirt.Play ();
 
 
-				} else if (number < 18f && !headChopped && !armChopped) {
+				} else if (number < 19f && !headChopped && !armChopped) {
 					anim.SetTrigger ("ArmChop");
 
 					Flip ();
@@ -228,7 +228,7 @@ public class EnemyControllerScript : MonoBehaviour {
 
 					armChopped = true;
 					gameObject.GetComponentInChildren<MestausScript> ().katkaiseOrcKasi ();
-				} else if (number < 25f && !headChopped && !armChopped) {
+				} else if (number < 27f && !headChopped && !armChopped) {
 					gameObject.GetComponentInChildren<VeriLentaa> ().suihkauta ();
 					anim.SetTrigger ("DieHalves");
 					//squirt.Play ();
@@ -257,6 +257,7 @@ public class EnemyControllerScript : MonoBehaviour {
 
 	void inflictDamageToPlayer(int damage) {
 		if (IsOnSameVerticalLevelWithHero() && enemyWithinAttackRange) {
+			hero.SendMessage("ApplyDamage", facingRight);
 			hero.SendMessage("ApplyDamage", damage);
 		}
 	}

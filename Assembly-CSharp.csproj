@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{B18AADEB-08D6-CF79-BD8B-55337A7E4F67}</ProjectGuid>
+	<ProjectGuid>{C5459433-7BDC-109D-E511-1A4C1E2D2E9E}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>E:/Unity46/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>E:/Unity4_6beta/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>E:/Unity46/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>E:/Unity4_6beta/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,7 +64,7 @@
      <Compile Include="Assets\Scripts\VeriLentaa.cs" />
      <Compile Include="Assets\Scripts\Verilammikoija.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>E:/Unity46/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>E:/Unity4_6beta/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -463,14 +463,14 @@ public class PlayerKarttaControllerScript : MonoBehaviour
 		void blockIsTrue ()
 		{
 				nowBlocking = true;
-				blockCounter = Random.Range (3, 6);
+				blockCounter = Random.Range (4, 7);
 		}
 
 		public void IncreaseKillCount ()
 		{
 				this.killCount++;
 
-				if (this.killCount == 10) {
+				if (this.killCount == 12) {
 						anim.SetTrigger ("victory");
 						this.victory = true;
 				}
